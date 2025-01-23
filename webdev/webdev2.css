@@ -7,11 +7,14 @@
 ul {
   @media (hover) and (prefers-reduced-motion: no-preference) {
     & > li {
+      opacity: .25;
+      color: green;
       transition: opacity .3s var(--ease-3);
     }
     
     &:hover > li:not(:hover) {
-      opacity: .25;
+      opacity: 1;
+      color: yellowgreen;
     }
   }
 }
