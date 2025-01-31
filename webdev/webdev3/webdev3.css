@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:wght@300;400&display=swap");
+
+body {
+	font-family: "Lato", sans-serif;
+	background-color: #f7f3e9;
+	color: #3a3a3a;
+	line-height: 1.8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin: 0;
+	padding: 20px;
+}
+
+.container {
+	max-width: 800px;
+	background-color: #ffffff;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	padding: 60px;
+	border-radius: 20px;
+	position: relative;
+	overflow: hidden;
+}
+
+h1 {
+	font-family: "Cormorant Garamond", serif;
+	font-size: 3em;
+	color: #2c5e4c;
+	margin-bottom: 40px;
+	text-align: center;
+	font-weight: 700;
+}
+
+.drop-cap-wrapper {
+	position: relative;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+.drop-cap {
+	font-family: "Cormorant Garamond", serif;
+	font-size: 7em;
+	line-height: 0.8;
+	color: #2c5e4c;
+	position: relative;
+	z-index: 2;
+}
+
+.nature-elements {
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -20px;
+	bottom: -20px;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.drop-cap-paragraph {
+	font-size: 1.2em;
+	margin-bottom: 25px;
+	color: #4a4a4a;
+}
+
+p {
+	margin-bottom: 25px;
+}
+
+.container::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 150px;
+	height: 150px;
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%232c5e4c" d="M0 100c0-20 10-40 30-50 20-10 40-10 60 0 20 10 30 30 30 50H0z"/></svg>')
+		no-repeat;
+	opacity: 0.1;
+	transform: rotate(45deg) translate(40px, 40px);
+}
