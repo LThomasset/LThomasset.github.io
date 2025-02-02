@@ -1,0 +1,89 @@
+body {
+    font-family: sans-serif;
+    font-size: 13pt;
+    font-weight: 400;
+}
+
+main {
+    font-family: sans-serif;
+    font-size: 12pt;
+    font-weight: 400;
+    padding-left: 190px;
+    line-height: 27px;
+    padding: 2%;
+    margin-left: 145px;
+    padding-right: 5%;;
+}
+
+div {
+    font-size: 11pt;
+    line-height: 15px;
+}
+
+h1 {
+    font-family: serif;
+    font-size: 22pt;
+    font-weight: 200;
+    line-height: 5px;
+}
+
+h2 {
+    font-family: serif;
+    font-size: 18pt;
+    font-weight: 200;
+    line-height: 10px;
+}
+
+h3 {
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 14pt;
+}
+
+h4 {
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 12pt;
+}
+
+ul {
+    padding-left: 10px;
+}
+
+section {
+    float:right;
+    margin-left: 500px;
+}
+
+article {
+    float: right;
+    margin-right: 15px;
+    background-color: #F8F8F8;
+    border-style: solid;
+    border-color:#A9A9A9;
+    padding-bottom: 15px;
+}
+
+aside {
+    font-family: sans-serif;
+    font-size: 11pt;
+    float: left;
+    width: 10%;
+    padding-right: 15px;
+    margin-left: 15px;
+    padding-top: 25px;
+}
+
+article {
+    margin: 20px;
+    font-family: sans-serif;
+    font-size: 11pt;
+    float: right;
+}
+
+sup {
+    line-height: 0;
+    vertical-align: super;
+    position: relative;
+    font-size: 0.8em;
+}
