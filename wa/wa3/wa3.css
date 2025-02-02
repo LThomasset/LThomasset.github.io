@@ -46,7 +46,7 @@ h4 {
     font-size: 12pt;
 }
 
-ul {
+ul, dl, dd {
     padding-left: 10px;
 }
 
