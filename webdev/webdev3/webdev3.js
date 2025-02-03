@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const natureElements = document.querySelector(".nature-elements");
 
 	// Create nature elements
-	const elements = ["🍃", "🌿", "🍂", "🌱", "🦋", "🐞"];
+	const elements = ["🍃", "🌿", "🌿", "🌱", "🍀", "🌱"];
 	for (let i = 0; i < 20; i++) {
 		const element = document.createElement("span");
 		element.textContent = elements[Math.floor(Math.random() * elements.length)];
