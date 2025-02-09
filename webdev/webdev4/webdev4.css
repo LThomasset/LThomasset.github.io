@@ -1,0 +1,267 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #000;
+}
+
+.content {
+	width: 90vmin;
+	height: 90vmin;
+	/*background: rgb(252, 239, 239);*/
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.content div {
+	/*background-color: #fff;*/
+	width: 14vmin;
+	height: 14vmin;
+	position: relative;
+}
+
+.letter-a {
+	background: 
+		conic-gradient(from 153deg at 50% 0%, #0022ff6a 0 7.5%, #fff0 0 100%), 
+		conic-gradient(from 153deg at 50% 0%, #0022ff6a 0 15%, #fff0 0 100%);
+}
+
+.letter-b {
+	background: 
+		radial-gradient(circle at 70% 70%, #0929f664 0 29%, #fff0 calc(29% + 1px) 100%), 
+		radial-gradient(circle at 70% 26%, #0929f664 0 24.5%, #fff0 calc(24.5% + 1px) 100%), 
+		linear-gradient(90deg, #0929f664 0 70%, #fff0 0 100%);
+}
+
+.letter-c {
+	background: 
+		linear-gradient(45deg, #1a32e55b 0 50%, #fff0 calc(50% + 1px) 100%),
+		linear-gradient(135deg, #1a32e55b 0 50%, #fff0 calc(50% + 1px) 100%);
+	border-radius: 100%;
+}
+
+.letter-d {
+	background: 
+		radial-gradient(circle at 50% 50%, #1a32e560 0 70%, #fff0 calc(70% + 1px) 100%), 
+		linear-gradient(90deg, #1a32e560 0 50%, #fff0 0 100%);
+}
+
+.letter-e {
+	background: 
+		linear-gradient(90deg, #2339dc5b 0 75%, #fff0 0 100%),
+		linear-gradient(90deg, #2339dc5b 0 75%, #fff0 0 100%),
+		linear-gradient(90deg, #2339dc5b 0 50%, #fff0 0 100%),
+		linear-gradient(0deg, #2339dc5b 0 33%, #fff0 0 67%, #2339dc5b 0 100%);
+	background-size: 100% 34%, 100% 34%, 100% 100%, 100% 100%;
+	background-repeat: no-repeat;
+	background-position: 0 50%,0 50%, 0 0, 0 0;
+}
+
+.letter-f {
+	background: 
+		linear-gradient(90deg, #2b3fd360 0 75%, #fff0 0 100%),
+		linear-gradient(90deg, #2b3fd360 0 75%, #fff0 0 100%),
+		linear-gradient(90deg, #2b3fd360 0 50%, #fff0 0 100%),
+		linear-gradient(0deg, #fff0 0 67%, #2b3fd360 0 100%);
+	background-size: 100% 34%, 100% 34%, 100% 100%, 100% 100%;
+	background-repeat: no-repeat;
+	background-position: 0 50%, 0 50%, 0 0, 0 0;
+}
+
+
+
+.letter-g {
+	background: 
+		radial-gradient(circle at 0 0, #3444ca60 0 70%, #fff0 0 100%),
+		conic-gradient(from 90deg at 50% 50%, #3444ca60 0 88%, #fff0 88% 100%);
+	border-radius: 100% 100% 0 100%;
+	background-repeat: no-repeat;
+	background-size: 50% 50%, 100% 100%;
+	background-position: 100% 100% , 0 0;
+}
+
+.letter-h {
+	background: 
+		linear-gradient(90deg, #3d4ac160 0 100%),
+		linear-gradient(0deg, #fff0 0 33%, #3d4ac160 0 66%, #fff0 0 100%),
+		linear-gradient(90deg, #fff0 0 50%, #3d4ac160 0 100%) ;
+}
+
+.letter-i {
+	background: linear-gradient(90deg, #fff0 0 30%, #464fb9bc 0 70%, #fff0 0 100%) ;
+}
+
+.letter-j {
+	background: 
+		radial-gradient(circle at 0 100%, #4e54b060 0 70%, #fff0 0 100%),
+		conic-gradient(from 0deg at 50% 50%, #4e54b060 0 75%, #fff0 75% 100%);
+	border-radius: 100% 0 100% 100%;
+	background-repeat: no-repeat;
+	background-size: 50% 50%, 100% 100%;
+	background-position: 100% 0% , 0 0;
+}
+
+.letter-k {
+	background: 
+		linear-gradient(90deg, #575ba75a 0 50%, #fff0 0 100%),
+		conic-gradient(from -45deg at 50% 50%, #575ba75a 0 25%, #fff0 0% 50%,  #575ba75a 0 75%, #fff0 0% 100%);
+}
+
+
+.letter-l {
+	background: 
+		linear-gradient(0deg, #60609e60 0 30%, #fff0 0 100%),
+		linear-gradient(90deg, #60609e60 0 45%, #fff0 0 100%) ;
+}
+
+
+.letter-m {
+	background: 
+		linear-gradient(-135deg, #ffffff00 0 50%, #68669560 0 100%),
+		linear-gradient(135deg, #ffffff00 0 50%, #68669560 0 100%);
+}
+
+
+.letter-n {
+	background: 
+		linear-gradient(-135deg, #ffffff00 0 50%, #716c8d60 0 100%),
+		linear-gradient(90deg, #ffffff00 0 50%, #716c8d60 0 100%);
+}
+
+.letter-o {
+	background: 
+		radial-gradient(circle at 50% 50%, #7a718460 0 100%),
+		linear-gradient(-45deg, #7a718460 0 50%, #fff0 0% 100%);
+	border-radius: 100%;
+}
+
+
+.letter-p {
+	background: 
+		radial-gradient(circle at 25% 50%, #82777b60 0 71%, #fff0 calc(71% + 1px) 100%),
+		linear-gradient(-90deg, #ffffff00 0 50%, #82777b60 0 100%),
+		conic-gradient(from 270deg at 50% 70%, #82777b60 0 25%, #fff0 0 100%);
+	background-repeat: no-repeat;
+	background-size: 50% 70%, 100% 100%, 100% 100%;
+	background-position: 100% 0% , 0 0, 0 0;
+}
+
+.letter-q {
+	background: 
+		radial-gradient(circle at 50% 50%, #8b7c7260 0 70%, #fff0 calc(70% + 1px)  100%),
+		conic-gradient(from 135deg, #8b7c7260 0 12.5%, #fff0 0% 100%);
+}
+
+
+.letter-r {
+	background: 
+		radial-gradient(circle at 25% 50%, #94826a60 0 71%, #fff0 calc(71% + 1px) 100%),
+		linear-gradient(-90deg, #ffffff00 0 50%, #94826a60 0 100%),
+		conic-gradient(from 270deg at 50% 70%, #94826a60 0 25%, #fff0 0 100%),
+		conic-gradient(from 135deg at 50% 50%, #94826a60 0 25%, #fff0 0 100%);
+	background-repeat: no-repeat;
+	background-size: 50% 70%, 100% 100%, 100% 100%, 100% 100%;
+	background-position: 100% 0% , 0 0, 0 0, 0 0;
+}
+
+.letter-s::before,
+.letter-s::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 67.5%;
+	border-radius: 0 5vmin 5vmin 0;
+	background: #9c886160;
+	bottom: 0;
+}
+
+.letter-s::after {
+	border-radius: 5vmin 0 0 5vmin;
+	top: 0;
+}
+
+.letter-t {
+	background: 
+		linear-gradient(180deg, #a58d5860 0 30%, #fff0 0 100%),
+		linear-gradient(90deg,  #fff0 0 30%, #a58d5860 0 70%, #fff0 0 100%) ;
+}
+
+.letter-u {
+	background: 
+		radial-gradient(circle at 50% 50%, #b6984660 0 70%, #fff0 calc(70% + 1px) 100%),
+		conic-gradient(from 0deg, #b6984660 0 25%, #fff0 0% 100%),
+		conic-gradient(from -90deg, #b6984660 0 50%, #fff0 0% 100%);
+	border-radius: 0 0 100% 100%; ;
+}
+
+.letter-v {
+	background: 
+		conic-gradient(from 0deg at 50% 100%, #bf9f3e60 0 7.5%, #fff0 0 100%), 
+		conic-gradient(from -26deg at 50% 100%, #bf9f3e60 0 14.5%, #fff0 0 100%);
+}
+
+.letter-w {
+	background:  
+		conic-gradient(from -21deg at 36% 100%, #fff0 0 0.25%, #c8a33560 0.5% 11%, #fff0 11.25% 360deg),
+		conic-gradient(from -21deg at 64% 100%, #fff0 0 0.25%, #c8a33560 0.5% 11%, #fff0 11.25% 360deg);
+}
+
+.letter-x {
+	background: 
+		conic-gradient(from -26deg at 50% 100%, #D1AA2C60 0 14.5%, #fff0 0 100%),
+		conic-gradient(from 154deg at 50% 0%, #D1AA2C60 0 14.5%, #fff0 0 100%);
+}
+
+.letter-y {
+	background: 
+		linear-gradient(90deg,  #fff0 0 30%, #D9AF2360 0 70%, #fff0 0 100%),
+		conic-gradient(from -26deg at 50% 100%, #D9AF2360 0 14.5%, #fff0 0 100%);
+}
+
+.letter-z {
+	background: 
+		linear-gradient(180deg, #E2B51A60 0 30%, #fff0 0 100%),
+		linear-gradient(-45deg, #E2B51A60  0 50%, #fff0 0 100%),
+		linear-gradient(-45deg, #E2B51A60 0 100%) ;
+}
+
+.letter-dot {
+	background: 
+		radial-gradient(circle at 80% 80%, #E2B51A60 0 15%, #fff0 calc(15% + 1px) 100%) ;
+}
+
+.letter-com {
+	background: 
+		radial-gradient(circle at 80% 70%, #EBBB1260 0 15%, #fff0 calc(15% + 1px) 100%),
+		conic-gradient(from -45deg at 100% 100%, #EBBB1260 0 12.5%, #fff0 0 100%) ;
+	background-repeat: no-repeat;
+	background-size: 100% 100%, 38% 32%;
+	background-position: 0 0 , 95% 100%;
+}
+
+
+
+.letter-qu {
+	background: 
+		radial-gradient(circle at 10% 50%, #fff0 0 25%, #F3C00960 calc(25% + 1px) 71%, #fff0 calc(71% + 1px) 100%),
+		radial-gradient(circle at 50% 84%, #F3C00960 0 15%, #fff0 calc(15% + 1px) 100%);
+	background-size: 50% 82%,  100% 100%;
+	background-repeat: no-repeat;
+	background-position: 70% 0, 0 0;
+}
+
+.letter-ex {
+	background: 
+		radial-gradient(circle at 50% 84%, #FCC60060 0 15%, #fff0 calc(15% + 1px) 100%),
+		linear-gradient(90deg, #fff0 0 33%, #FCC60060 0 67%, #fff0 0 100%);
+	background-size:  100% 100%, 100% 82%;
+	background-repeat: no-repeat;
+	background-position:  0 0, 0 0;
+}
