@@ -1,0 +1,92 @@
+.quick-flip {
+    --transition-duration: 0.5s;
+    --timing-function: cubic-bezier(0.66, 0, 0.34, 1);
+    /*   --timing-function: linear(0, 0.234 11.8%, 0.403 18.4%, 0.624 24.7%, 0.999 33.3%, 0.76 39.9%, 0.705 42.6%, 0.687 45.2%, 0.703 47.7%, 0.753 50.3%, 0.999 57.7%, 0.89 61.8%, 0.865 63.6%, 0.857 65.3%, 0.865 67%, 0.887 68.8%, 0.999 74.5%, 0.957 77.5%, 0.944 80.2%, 0.954 82.7%, 1 88.2%, 0.988 91.9%, 1); */
+  
+    overflow-y: clip;
+  
+    > * {
+      /* inline elements can't use transforms */
+      display: block;
+  
+      /* the transform is moving it up
+         then the translate has a  */
+      transition: transform var(--transition-duration) var(--timing-function),
+        translate 0ms calc(var(--transition-duration) / 2);
+    }
+  
+    &:is(:hover, :focus-within) > * {
+      transform: translateY(-2lh);
+      translate: 0 2lh;
+      color: salmon;
+    }
+  
+    &:focus-within {
+      outline: 10px dotted hsl(from var(--teal) h 20% 15%);
+      border-radius: 4px;
+
+      > *:focus {
+        outline: none;
+      }
+    }
+  }
+  
+  @layer general-styling {
+    :root {
+      --black: hsl(228, 14%, 7%);
+      --white: hsl(220, 33%, 96%);
+      --gray: hsl(220, 2%, 51%);
+      --teal: hsl(173, 47%, 52%);
+    }
+  
+    body {
+      margin: 0;
+      font-family: system-ui;
+      font-size: 2rem;
+      display: grid;
+      min-block-size: 100svh;
+      place-content: center;
+      background: var(--teal);
+      color: var(--white);
+    }
+  
+    h1 {
+      text-transform: lowercase;
+      text-align: center;
+      font-weight: 900;
+      margin: 0;
+      color: hsl(from var(--teal) h 20% 15%);
+    }
+  
+    @layer demo-specific-prettying-up {
+      /* Want to keep it an unordered list, and don't really feel
+     like the numbers should be anything more than decoration, which
+     is why I went with spans with aria-hidden */
+      ul:has(.quick-flip) {
+        margin: 0;
+        padding-block: clamp(3rem, 10vmin, 6rem);
+        padding-inline: clamp(5rem, 15vmin, 10rem);
+        border-radius: 1rem;
+        box-shadow: 10 0 1rem hsl(from var(--black) h s l / 0.4);
+  
+        list-style: none;
+        text-transform: lowercase;
+        font-weight: 900;
+        background: var(--black);
+  
+        li {
+          margin-block: 1rem;
+        }
+  
+        a {
+          text-decoration: none;
+          color: var(--white);
+  
+          span {
+            color: var(--gray);
+          }
+        }
+      }
+    }
+  }
+  
