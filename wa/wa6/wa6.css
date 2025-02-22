@@ -1,0 +1,73 @@
+body {
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    font: 1.2em / 1.2 Arial, Helvetica, sans-serif;
+  }
+
+  img {
+      max-width: 100%;
+      display: block;
+  }
+  
+  .logo {
+    font-size: 200%;
+    padding: 50px 20px;
+    margin: 0 auto;
+    max-width: 980px;
+  }
+  
+  .grid {
+    display: grid;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 980px;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  
+  nav {
+    position: sticky;
+    top: 0;
+    background-color: #000;
+    padding: .5em;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: .5em 1em;
+  }
+  
+  .photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-around;
+    grid-gap: 1px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .feature {
+    width: 200px;
+    float: left;
+    margin-right: 25px;
+  }
+
+  article{
+    margin: 2%;
+  }
+
+  aside{
+    margin: 2%;
+  }
