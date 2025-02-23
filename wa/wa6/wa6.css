@@ -18,25 +18,17 @@ body {
   }
   
   .grid {
-    display: grid;
     margin: 0 auto;
     padding: 0 20px;
     max-width: 980px;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr;
   }
   
   nav {
-    position: sticky;
-    top: 0;
     background-color: #000;
     padding: .5em;
   }
   
   nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -49,10 +41,6 @@ body {
   }
   
   .photos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-around;
-    grid-gap: 1px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -60,14 +48,87 @@ body {
 
   .feature {
     width: 200px;
-    float: left;
-    margin-right: 25px;
   }
 
-  article{
-    margin: 2%;
+  @media screen and (min-width: 500px) {
+    .grid{
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    nav{
+      position: sticky;
+      top: 0;
+    }
+
+    nav ul{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .photos{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: space-around;
+      grid-gap: 1px;
+    }
+
+    .feature{
+      float: left;
+      margin-right: 25px;
+    }
+
+    article{
+      margin: 2%;
+    }
+  
+    aside{
+      margin: 2%;
+    }
   }
 
-  aside{
-    margin: 2%;
+  @media screen and (max-width: 500px) {
+    .grid{
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav{
+      position: sticky;
+      top: 0;
+    }
+
+    nav ul{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      justify-items: left;
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 3.5vw;
+    }
+
+    .photos{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: space-around;
+      grid-gap: 1px;
+    }
+
+    .feature{
+      float: left;
+      margin-right: 25px;
+    }
+
+    article{
+      margin: 2%;
+    }
+  
+    aside{
+      margin: 2%;
+    }
   }
