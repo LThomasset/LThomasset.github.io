@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff0ab;
+    font-family: "Poppins", sans-serif;
+}
+
+title{
+    color: #28282B;
+    font-weight: 600;
+}
+
+nav{
+    height: 50vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height:20px;
+    background-color: #DAA06D;
+}
+nav a{
+    width:10vw;
+    text-align: center;
+    text-decoration: none;
+    color:#28282B;
+}
+
+img{
+    width:30vw;
+    height: 40vh;
+}
+
+
+.image-hover{
+    background-image: url(img/PXL_20241221_181219888\ 2.png);
+    width:35vw;
+    height: 40vw;
+    background-size: cover;
+    transition: background-image 1s;
+}
+
+.image-hover:hover{
+    background-image: url(img/PXL_20241221_181228948\ 2.png);
+}
+
+#red-ball{
+    background-color: #fff0ab;
+    width: 3vw;
+    height: 3vh;
+    border-radius: 50%;
+    position: absolute;
+    left:0;
+    top:0;
+    animation-name: ball;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes ball {
+    0%{}
+    25%{translate: 0 97vh; background-color: rgb(136, 181, 104);}
+    50%{translate: 97vw 97vh; background-color: #fff0ab;}
+    75%{translate: 97vw 0vh;background-color: rgb(136, 181, 104);}
+    100%{translate: 0 0; background-color: #fff0ab}
+}
+
+@media screen  {
+    
+}
