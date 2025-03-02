@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="webdev7.css">
+    <title>Document</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1600" role="img" aria-labelledby="title desc">
+        <title id="title">Disappointed</title>
+        <desc id="desc">Minimalist cartoon of a dispapointed man's face, drawn by Alvaro Montoro</desc>
+        <defs>
+          <linearGradient id="nose-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop stop-color="#ffbb99" offset="20%" />
+            <stop stop-color="#ffad8c" offset="80%" />
+          </linearGradient>
+          <clipPath id="eye-clip">
+            <circle cx="1425" cy="621" r="225" fill="#ffffff"/>
+            <circle cx="975" cy="621" r="225" fill="#ffffff"/>
+          </clipPath>
+        </defs>
+        <path d="M0,0 2400,0 2400,1600 0,1600" fill="#ffccaa" />
+        <g stroke="#222" stroke-width="8">
+          <circle cx="1425" cy="621" r="225" fill="#ffffff"/>
+          <circle cx="975" cy="621" r="225" fill="#ffffff"/>
+          <circle cx="1425" cy="621" r="25" fill="#222222"/>
+          <circle cx="975" cy="621" r="25" fill="#222222"/>
+          <path clip-path="url(#eye-clip)" fill="#fca" d="M 735,518 C 852,468 1086,453 1197,492 1340,445 1541,475 1660,516 1779,557 1475,233 1204,233 933,233 733,462 733,487" />
+          <circle cx="1425" cy="621" r="225" fill="none" />
+          <circle cx="975" cy="621" r="225" fill="none" />
+          <path fill="#ddd" d="M 1264,289 C 1402,178 1563,179 1657,300 1686,343 1675,279 1655,258 1725,255 1440,-55 1260,270 1247,290 1265,288 1265,288" />
+          <path fill="#ddd" d="M 1124,360 C 1001,310 853,322 743,431 724,451 715,407 743,389 669,317 1041,125 1143,347 1155,375 1135,366 1126,360" />
+          <path fill="none" d="M 1113,1227 C 1159,1192 1235,1187 1285,1229M 758,1471 C 738,1132 980,962 1200,974 1397,959 1664,1126 1640,1470M 718,1428 C 716,1480 798,1495 798,1428M 1680,1427 C 1682,1478 1605,1494 1599,1429" />
+          <path fill="url(#nose-gradient)" d="M 1200,648 C 1341,648 1470,1150 1200,1150 930,1150 1050,648 1200,648 Z" />
+        </g>
+      </svg>
+</body>
+</html>
