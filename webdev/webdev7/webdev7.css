@@ -9,11 +9,89 @@ body {
   }
   
   svg {
+    position: relative;
     max-width: 100vmin;
     max-height: 100vmin;
-    animation-name: smile;
   }
 
+defs:hover, path:hover, g:hover{
+  #mouth{
+    animation-name: smile;
+    animation-duration: 4s;
+  }
+
+  #eyebrow{
+    animation-name: eyebrow;
+    animation-duration: 4s;
+  }
+
+  #right-eye{
+    animation-name: right-eye;
+    animation-duration: 4s;
+  }
+
+  #left-eye{
+    animation-name: left-eye;
+    animation-duration: 4s;
+  }
+}
+
+@keyframes left-eye {
+  0%{
+    position: absolute;
+  }
+  15%{
+    transform: scale(2) translate(9.5vw, 10vh);
+    transform-origin: center;
+    position: absolute;
+  }
+  100%{
+    transform: scale(2) translate(9.5vw, 10vh);
+    transform-origin: center;
+    position: absolute;
+  }
+}
+
+@keyframes right-eye {
+  0%{
+    position: absolute;
+  }
+  15%{
+    transform: scale(2) translate(-9.5vw, 10vh);
+    transform-origin: center;
+    position: absolute;
+  }
+  100%{
+    transform: scale(2) translate(-9.5vw, 10vh);
+    transform-origin: center;
+    position: absolute;
+  }
+}
+
+@keyframes eyebrow {
+  0%{
+    position: absolute;
+  }
+  15%{
+    translate: 0 -10vh;
+  }
+  100%{
+    translate: 0 -10vh;
+  }
+}
+
 @keyframes smile {
-        
+  0%{
+    position: absolute;
+  }
+  15%{
+    transform: scaleY(-1) translateY(-40%);
+    transform-origin: center;
+    position: absolute;
+  }
+  100%{
+    transform: scaleY(-1) translateY(-40%);
+    transform-origin: center;
+    position: absolute;
+  }
 }
