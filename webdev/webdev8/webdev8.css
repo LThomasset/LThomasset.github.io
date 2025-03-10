@@ -1,0 +1,201 @@
+img{
+    position: absolute;
+    height: 8vh;
+}
+
+.left-fox{
+    left: 27vw;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    flex-direction: row;
+    gap: 1em;
+  }
+  
+  .mondrian {
+    --u: max(1px, 0.05em);
+    --red: lightcoral;
+    --blue: cornflowerblue;
+    --yellow: gold;
+    appearance: none;
+    font-size: 96px;
+    height: 93px;
+    width: 235px;
+    border: var(--u) solid;
+    position: relative;
+    box-sizing: content-box;
+    overflow: hidden;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0; 
+      width: 4em;
+      height: 100%;
+      transition: left 0.25s;
+      background:
+        linear-gradient(var(--blue) 0 0) calc(var(--u) * 0) calc(var(--u) * -3) / calc(var(--u) * 14) calc(var(--u) * 5),
+        linear-gradient(var(--yellow) 0 0) calc(var(--u) * 15) calc(var(--u) * -3) / calc(var(--u) * 14) calc(var(--u) * 5),
+        linear-gradient(var(--red) 0 0) calc(var(--u) * 30) calc(var(--u) * -3) / calc(var(--u) * 10) calc(var(--u) * 13),
+        linear-gradient(var(--blue) 0 0) calc(var(--u) * 0) calc(var(--u) * -3) / calc(var(--u) * 14) calc(var(--u) * 5),
+        linear-gradient(var(--blue) 0 0) calc(var(--u) * 41) calc(var(--u) * -3) / calc(var(--u) * 10) calc(var(--u) * 5),
+  
+        linear-gradient(var(--red) 0 0) calc(var(--u) * -12) calc(var(--u) * 3) / calc(var(--u) * 14) calc(var(--u) * 14),
+        linear-gradient(#fff 0 0) calc(var(--u) * 3) calc(var(--u) * 3) / calc(var(--u) * 14) calc(var(--u) * 14),
+        linear-gradient(var(--blue) 0 0) calc(var(--u) * 18) calc(var(--u) * 3) / calc(var(--u) * 11) calc(var(--u) * 14),
+        linear-gradient(var(--red) 0 0) calc(var(--u) * 41) calc(var(--u) * 3) / calc(var(--u) * 14) calc(var(--u) * 20),
+        linear-gradient(#fff 0 0) calc(var(--u) * 3) calc(var(--u) * 3) / calc(var(--u) * 14) calc(var(--u) * 14),
+        linear-gradient(var(--blue) 0 0) calc(var(--u) * 30) calc(var(--u) * 11) / calc(var(--u) * 10) calc(var(--u) * 13),
+         linear-gradient(var(--yellow) 0 0) calc(var(--u) * 0) calc(var(--u) * 18) / calc(var(--u) * 7) calc(var(--u) * 5),
+        linear-gradient(var(--red) 0 0) calc(var(--u) * 8) calc(var(--u) * 18) / calc(var(--u) * 16) calc(var(--u) * 5),
+        linear-gradient(var(--yellow) 0 0) calc(var(--u) * 25) calc(var(--u) * 18) / calc(var(--u) * 4) calc(var(--u) * 5),
+        
+        linear-gradient(var(--yellow) 0 0) calc(var(--u) * 52) calc(var(--u) * -3) / calc(var(--u) * 3) calc(var(--u) * 5),
+        linear-gradient(var(--blue) 0 0) calc(var(--u) * 56) calc(var(--u) * -3) / calc(var(--u) * 6) calc(var(--u) * 15),
+        linear-gradient(var(--red) 0 0) calc(var(--u) * 63) calc(var(--u) * -3) / calc(var(--u) * 16) calc(var(--u) * 5),
+        
+        linear-gradient(var(--blue) 0 0) calc(var(--u) * 56) calc(var(--u) * -3) / calc(var(--u) * 6) calc(var(--u) * 15),
+        linear-gradient(var(--yellow) 0 0) calc(var(--u) * 56) calc(var(--u) * 13) / calc(var(--u) * 6) calc(var(--u) * 15),
+        
+        linear-gradient(#fff 0 0) calc(var(--u) * 63) calc(var(--u) * 3) / calc(var(--u) * 14) calc(var(--u) * 14),
+        linear-gradient(var(--blue) 0 0) calc(var(--u) * 78) calc(var(--u) * 3) / calc(var(--u) * 14) calc(var(--u) * 14),
+        
+        linear-gradient(var(--red) 0 0) calc(var(--u) * 63) calc(var(--u) * 18) / calc(var(--u) * 10) calc(var(--u) * 14),
+        linear-gradient(var(--red) 0 0) calc(var(--u) * 74) calc(var(--u) * 18) / calc(var(--u) * 10) calc(var(--u) * 14),
+      #000
+      ;
+       
+      background-repeat: no-repeat;
+    }
+    
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0.5em;
+      width: 0.8em;
+      height: 0.8em;
+      border: max(1px, 0.05em) solid #0000;
+      transform: translate(-50%, -50%);
+    }
+    
+    &:hover {
+      &::after {
+        left: calc(100% - 0.5em);
+        animation-delay: 0s;
+        content: url(./70-700266_transparent-sleeping-f-removebg-preview.png);
+        overflow: hidden;
+        overflow-block: hidden;
+      }
+      &::before {
+        left: -1.5em;
+      }
+    }
+    
+    &[disabled] {
+      filter: grayscale(1);
+    }
+  }
+  
+  
+  .mondrian2 {
+    --u: max(1px, 0.05em);
+    --r: lightcoral;
+    --b: cornflowerblue;
+    --y: gold;
+    appearance: none;
+    font-size: 96px;
+    height: 93px;
+    width: 235px;
+    border: var(--u) solid;
+    position: relative;
+    box-sizing: content-box;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transition: background-position 0.25s, background-size 0.25s;
+      background: 
+        linear-gradient(var(--y) 0 0) 0.0em 0.0em / 0.55em 0.15em,
+        linear-gradient(var(--b) 0 0) 0.6em 0.0em / 1.05em 0.15em,
+        linear-gradient(var(--y) 0 0) 1.7em 0.0em / 0.35em 0.55em,
+        linear-gradient(var(--b) 0 0) 1.7em 0.6em / 0.35em 0.55em,
+        linear-gradient(var(--b) 0 0) 2.1em 0.0em / 0.55em 0.15em,
+        linear-gradient(var(--y) 0 0) 0.0em 0.2em / 0.15em 0.65em,
+        linear-gradient(var(--r) 0 0) 0.9em 0.2em / 0.35em 0.65em,
+        linear-gradient(var(--r) 0 0) 2.1em 0.2em / 0.45em 0.85em,
+        linear-gradient(var(--r) 0 0) 1.3em 0.2em / 0.35em 0.85em,
+        linear-gradient(var(--b) 0 0) 0.0em 0.9em / 1.25em 0.55em,
+        linear-gradient(#000 0 0) 0.9em 0.2em / 0.35em 0.65em,
+        linear-gradient(#000 0 0) 1.7em 0.2em / 0.65em 0.65em,
+        linear-gradient(#fff 0 0) 0.2em 0.2em / 0.65em 0.65em,
+        linear-gradient(#fff 0 0) 1.7em 0.2em / 0.05em 0.05em;
+      background-color: #000;
+      background-repeat: no-repeat;
+    }
+    
+    &::after {
+      content: "";
+      width: 0.7em;
+      height: 0.7em;
+      left: 0.5em;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      border: var(--u) solid #0000;
+    }
+    
+    &:hover {
+      &::after {
+        left: calc(100% - 0.5em);
+        content: url(./70-700266_transparent-sleeping-f-removebg-preview.png);
+        overflow: hidden;
+      }
+      
+      &::before {
+        background-position:
+          0.2em 0.0em,
+          0.9em 0.0em,
+          1.7em 0.0em,
+          1.7em 0.9em,
+          2.2em 0.0em,
+          0.0em 0.0em,
+          0.2em 0.2em,
+          2.4em 0.2em,
+          0.9em 0.4em,
+          0.0em 0.7em,
+          0.2em 0.2em,
+          2.35em 0.2em,
+          0.4em 0.4em,
+          1.7em 0.2em;
+        background-size:
+          0.65em 0.15em,
+          0.75em 0.35em,
+          0.45em 0.15em,
+          0.65em 0.55em,
+          0.55em 0.15em,
+          0.15em 0.65em,
+          0.65em 0.45em,
+          0.45em 0.85em,
+          0.75em 0.85em,
+          0.85em 0.45em,
+          0.65em 0.65em,
+          0.65em 0.65em,
+          0.0em 0.0em,
+          0.65em 0.65em;
+      }
+    }
+    
+    &[disabled] {
+      filter: grayscale(1);
+    }
+  }
