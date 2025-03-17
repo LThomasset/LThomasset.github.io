@@ -24,6 +24,7 @@ body{
     text-align: center;
     font-family: "Nova Square";
     font-style: normal;
+    font-size: 1em;
 }
 
 .stars, .flicker{
@@ -66,6 +67,8 @@ h1 {
 }
 
 .nav{
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: black;
     list-style-type: none;
     display:flex;
@@ -161,7 +164,7 @@ strong {
     margin-bottom: 60px;
     border: 5px solid white;
     border-radius: 20px;
-    padding-bottom: 20px;
+    padding-bottom: px;
 }
 
 .footer-text{
@@ -169,6 +172,7 @@ strong {
     color:white;
     padding: 20px;
     filter: opacity(100%);
+    font-size: .8em;
 }
 
 .footer-link:link, .footer-link:visited{
