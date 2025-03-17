@@ -91,6 +91,7 @@ h1 {
     margin-bottom: 1vh;
     color: white;
     overflow-x: auto;
+    text-justify: center;
 }
 
 .grid{
@@ -159,19 +160,13 @@ strong {
 }
 
 .footer{
-    height: 130px;
     background: black;
     margin-bottom: 60px;
     border: 5px solid white;
     border-radius: 20px;
-    padding-bottom: px;
-}
-
-.footer-text{
     text-align: center;
     color:white;
     padding: 20px;
-    filter: opacity(100%);
     font-size: .8em;
 }
 
