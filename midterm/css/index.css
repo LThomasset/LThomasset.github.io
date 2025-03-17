@@ -62,6 +62,7 @@ h1 {
     line-height: 150px;
     font-size: 40px;
     filter: drop-shadow(0 0 3px var(--yellow));
+    padding: 20px;
 }
 
 .nav{
@@ -86,6 +87,7 @@ h1 {
     font-size: 2vh;
     margin-bottom: 1vh;
     color: white;
+    overflow-x: auto;
 }
 
 .grid{
@@ -128,7 +130,7 @@ h2{
     font-family: "Goldman";
     font-style: normal;
     color: var(--blue);
-    line-height: 50px;
+    padding: 10px;
 }
 
 a{
@@ -189,16 +191,29 @@ strong {
 }
 
 img{
-    width: 300px;
+    width: 29vw;
     height: auto;
     border: 5px solid black;
     margin: 50px;
     border-radius: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
 }
 
 img:hover{
-    filter: drop-shadow(0 0 40px var(--yellow));
+    filter: drop-shadow(0 0 10px var(--yellow));
     border-color: var(--yellow);
+}
+
+
+@media screen and (max-width: 763px) {
+    h1{
+        line-height: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -208,11 +223,15 @@ img:hover{
 
     #a1, #b1, #c1, #d1, #e1, #f1, #g1, #h1, #i1, #j1{
         margin-top: 10px;
-        margin-bottom: -75px;
+        margin-bottom: -70px;
     }
 
     #a2, #b2, #c2, #d2, #e2, #f2, #g2, #h2, #i2, #j2{
-        margin-top: -75px;
+        margin-top: -70px;
         margin-bottom: 100px;
+    }
+
+    img{
+        width: 50vw;
     }
 }
