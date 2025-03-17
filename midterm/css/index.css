@@ -1,7 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Bahiana&family=Goldman:wght@400;700&family=Handjet:wght@100..900&family=Nova+Square&family=Saira+Stencil+One&family=Smooch+Sans:wght@100..900&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --yellow: #f8c749;
+    --blue: #b7e4f5;
+    --Blue: #7bb8e0;
+}
+
+body{
+    overflow: hidden;
+    padding-top: 60px;
+}
+
 .text {
-    color: #f9e1a0;
+    color: var(--Blue);
     display: block;
     position: relative;
     z-index: 3;
@@ -42,6 +58,10 @@ h1 {
     font-family: "Saira Stencil One", sans-serif;
     font-weight: 400;
     font-style: normal;
+    color: var(--yellow);
+    line-height: 150px;
+    font-size: 40px;
+    filter: drop-shadow(0 0 3px var(--yellow));
 }
 
 .nav{
@@ -52,7 +72,7 @@ h1 {
     justify-content: space-evenly;
     position: sticky;
     top: 0;
-    z-index: 10;
+    border-radius: 20px;
 }
 
 .nav > * {
@@ -60,31 +80,34 @@ h1 {
     font-style: normal;
     justify-content: center;
     display: block;
-    background-color: #f9e1a0;
+    background-color: var(--Blue);
     border: 2px solid black;
-    border-radius: 5px;
-    padding: 1vh 2vw;
+    border-radius: 7px;
     font-size: 2vh;
     margin-bottom: 1vh;
-    color: #000;
+    color: white;
 }
 
 .grid{
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr 2fr;
     overflow: hidden;
+    width: 90vw;
+    margin: auto;
+    padding-bottom: 100px;
 }
 
 .grid > *{
     position: relative;
     justify-content: center;
     margin-bottom: 5vh;
-    padding-top: 10vh;
+    padding-top: 20vh;
+    margin: 2%;
 }
 
 .grid-item-list{
     list-style: none;
-    list-style-position: outside;
+    margin-bottom: 50px;
     margin-left: 0;
     padding-left: 0;
 }
@@ -92,20 +115,104 @@ h1 {
 li{
     margin-bottom: 0vh;
     z-index: 2;
-}
-
-@media screen and (max-width: 1000px) {
-    .grid{
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
+    list-style-type: none;
 }
 
 a:link, a:visited{
-    color: #000;
+    display: inline-block;
+    color: black;
     text-decoration: none;
 }
 
 h2{
     font-family: "Goldman";
     font-style: normal;
+    color: var(--blue);
+    line-height: 50px;
+}
+
+a{
+    display: inline-block;
+    padding: 0;
+    border-radius: 5px;
+    padding: 1vh 2vw;
+}
+
+a:hover, a:active{
+    background-color: var(--yellow);
+    color: black;
+}
+
+h3{
+    color: var(--yellow);
+    border: 3px double var(--yellow);
+    padding: 20px;
+}
+
+strong {
+    color: var(--blue);
+}
+
+.footer{
+    height: 130px;
+    background: black;
+    margin-bottom: 60px;
+    border: 5px solid white;
+    border-radius: 20px;
+    padding-bottom: 20px;
+}
+
+.footer-text{
+    text-align: center;
+    color:white;
+    padding: 20px;
+    filter: opacity(100%);
+}
+
+.footer-link:link, .footer-link:visited{
+    color: white;
+}
+
+.footer-link:hover, .footer-link:active{
+    color: black;
+}
+
+.nav-container{
+    border: 5px solid white;
+    border-radius: 20px;
+    top: 0;
+    position: sticky;
+    background-color: #000;
+    z-index: 10;
+    filter: drop-shadow(0 5px 10px white);
+    padding-bottom: 10px;
+}
+
+img{
+    width: 300px;
+    height: auto;
+    border: 5px solid black;
+    margin: 50px;
+    border-radius: 100%;
+}
+
+img:hover{
+    filter: drop-shadow(0 0 40px var(--yellow));
+    border-color: var(--yellow);
+}
+
+@media screen and (max-width: 1000px) {
+    .grid{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    #a1, #b1, #c1, #d1, #e1, #f1, #g1, #h1, #i1, #j1{
+        margin-top: 10px;
+        margin-bottom: -75px;
+    }
+
+    #a2, #b2, #c2, #d2, #e2, #f2, #g2, #h2, #i2, #j2{
+        margin-top: -75px;
+        margin-bottom: 100px;
+    }
 }
