@@ -1,0 +1,61 @@
+*{
+    overflow-x: hidden;
+    margin: 0;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+#background{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+}
+
+button{
+    font-size: 20px;
+    padding: auto 15px;
+    border-radius: 20px;
+    border: 3px solid rgb(75, 29, 29);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: antiquewhite;
+    display: block;
+    width: 300px;
+    height: 50px;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:hover{
+    background-color: rgb(75, 29, 29);
+    color: antiquewhite;
+    transition-duration: .5s;
+}
+
+h1{
+    margin: 10vw;
+    margin-top: 20px;
+    text-align: center;
+    color: rgb(75, 29, 29);
+    font-size: 10vh;
+    border: 5px solid white;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    margin-bottom: 0;
+}
+
+img{
+    height: 400px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 40px;
+    padding: 20px;
+}
