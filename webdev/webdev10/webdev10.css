@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
+
+@property --color-1 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #E50046;
+  }
+  
+  @property --color-2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #FDAB9E;
+  }
+
+  @property --color-3 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #FFF0BD;
+  }
+
+  @property --color-4 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #C7DB9C;
+  }
+  
+  @keyframes gradient-wave {
+    0% {
+      --color-1: #E50046;
+      --color-2: #FDAB9E;
+      --color-3: #FFF0BD;
+      --color-4: #C7DB9C;
+    }
+    25% {
+      --color-1: #FDAB9E;
+      --color-2: #FFF0BD;
+      --color-3: #C7DB9C;
+      --color-4: #E50046;
+    }
+    50% {
+      --color-1: #FFF0BD;
+      --color-2: #C7DB9C;
+      --color-3: #E50046;
+      --color-4: #FDAB9E;
+    }
+    75% {
+      --color-1: #C7DB9C;
+      --color-2: #E50046;
+      --color-3: #FDAB9E;
+      --color-4: #FFF0BD;
+    }
+    100% {
+      --color-1: #E50046;
+      --color-2: #FDAB9E;
+      --color-3: #FFF0BD;
+      --color-4: #C7DB9C;
+    }
+  }
+  
+  article {
+    animation: gradient-wave 8s linear infinite;
+    
+    background: linear-gradient(
+      to right in oklch, 
+      var(--color-1), 
+      var(--color-2),
+      var(--color-3),
+      var(--color-4)
+    );
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    background-clip: text;
+    color: transparent;
+  }
+  
+  @layer demo.support {
+    h1 {
+      font-size: 10vmin;
+      line-height: 1.1;
+    }
+  
+    body {
+      background: hsl(204 100% 5%);
+  
+      min-block-size: 100%;
+      box-sizing: border-box;
+      display: grid;
+      place-content: center;
+  
+      font-family: "Oleo Script", system-ui;
+      font-size: min(200%, 4vmin);
+  
+      padding: 5vmin;
+    }
+  
+    h1, p, body {
+      margin: 0;
+      text-wrap: balance;
+    }
+  
+    h1 {
+      line-height: 1.25cap;
+    }
+  
+    p {
+      font-family: "Dank Mono", ui-monospace, monospace;
+    }
+  
+    html {
+      block-size: 100%;
+    }
+  
+    article {
+      display: grid;
+      gap: 1lh;
+      text-align: center;
+    }
+  }
