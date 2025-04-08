@@ -1,0 +1,34 @@
+@import url("https://use.typekit.net/ers2qgl.css");
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #040a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button {
+  all: unset;
+  background-color: #040a1a;
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='40' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(224, 73%, 6%, 1)'/><path d='M0 30h20L10 50zm-10-20h20L0 30zm20 0h20L20 30zM0-10h20L10 10z'  stroke-width='2' stroke='hsla(224, 59%, 18%, 0.6)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+  border: 6px solid #252e45;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Arial", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  transform: skewX(-15deg);
+
+  &:focus {
+    outline: revert;
+  }
+}
