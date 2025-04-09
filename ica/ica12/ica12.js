@@ -8,10 +8,10 @@ let current = {
     answer: ""
 }
 
+getQuote()
+
 async function getQuote(){
     try{
-
-
         const response = await fetch(endpoint);
 
         if (!response.ok){
