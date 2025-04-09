@@ -8,7 +8,7 @@ let current = {
     answer: ""
 }
 
-getQuote()
+getQuote();
 
 async function getQuote(){
     try{
