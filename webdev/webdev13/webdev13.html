@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick a Card - Interactive Card Design</title>
+    <link rel="stylesheet" href="webdev13.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pick a Card</h1>
+        <p class="subtitle">Flip or hover to reveal card details</p>
+        
+        <div class="cards-container">
+            <div class="card" id="card1">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♠</span>
+                            <span class="value">A</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Ace of Spades</h3>
+                        <p>The ace of spades is traditionally the highest card in the deck of playing cards.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-star"></i> Power: 15</span>
+                            <span><i class="fas fa-bolt"></i> Speed: 10</span>
+                            <span><i class="fas fa-shield-alt"></i> Defense: 8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card2">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♥</span>
+                            <span class="value">Q</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Queen of Hearts</h3>
+                        <p>The queen of hearts represents Judith, Rachel, or Pallas (Athena) in the French deck of cards.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-star"></i> Power: 12</span>
+                            <span><i class="fas fa-bolt"></i> Speed: 9</span>
+                            <span><i class="fas fa-shield-alt"></i> Defense: 11</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card3">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♣</span>
+                            <span class="value">K</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>King of Clubs</h3>
+                        <p>The king of clubs is often associated with Alexander the Great in the French deck.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-star"></i> Power: 14</span>
+                            <span><i class="fas fa-bolt"></i> Speed: 8</span>
+                            <span><i class="fas fa-shield-alt"></i> Defense: 13</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card4">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♦</span>
+                            <span class="value">J</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Jack of Diamonds</h3>
+                        <p>The jack of diamonds represents Hector, a figure from Greek mythology in the French deck.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-star"></i> Power: 11</span>
+                            <span><i class="fas fa-bolt"></i> Speed: 12</span>
+                            <span><i class="fas fa-shield-alt"></i> Defense: 9</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" id="card5">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♠</span>
+                            <span class="value">10</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Ten of Spades</h3>
+                        <p>The ten of spades is a powerful card often associated with transformation and change.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-star"></i> Power: 10</span>
+                            <span><i class="fas fa-bolt"></i> Speed: 10</span>
+                            <span><i class="fas fa-shield-alt"></i> Defense: 10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card6">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♥</span>
+                            <span class="value">6</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Six of Hearts</h3>
+                        <p>The six of hearts represents harmony, balance, and emotional fulfillment in relationships.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-star"></i> Power: 6</span>
+                            <span><i class="fas fa-bolt"></i> Speed: 8</span>
+                            <span><i class="fas fa-shield-alt"></i> Defense: 7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card7">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♣</span>
+                            <span class="value">7</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Seven of Clubs</h3>
+                        <p>A card of growth and development, representing personal progress and achievement.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-club"></i> Clubs</span>
+                            <span><i class="fas fa-star"></i> 7</span>
+                            <span><i class="fas fa-palette"></i> Green</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card8">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♥</span>
+                            <span class="value">8</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Eight of Hearts</h3>
+                        <p>A card of balance and harmony, representing emotional stability and inner peace.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-heart"></i> Hearts</span>
+                            <span><i class="fas fa-star"></i> 8</span>
+                            <span><i class="fas fa-palette"></i> Red</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card9">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♠</span>
+                            <span class="value">9</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Nine of Spades</h3>
+                        <p>A card of wisdom and completion, representing the end of a cycle and new beginnings.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-spade"></i> Spades</span>
+                            <span><i class="fas fa-star"></i> 9</span>
+                            <span><i class="fas fa-palette"></i> Black</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card10">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♦</span>
+                            <span class="value">5</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Five of Diamonds</h3>
+                        <p>The five of diamonds represents material challenges and financial opportunities.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-star"></i> Power: 5</span>
+                            <span><i class="fas fa-bolt"></i> Speed: 8</span>
+                            <span><i class="fas fa-shield-alt"></i> Defense: 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card11">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♣</span>
+                            <span class="value">4</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Four of Clubs</h3>
+                        <p>The four of clubs represents stability, foundation, and building strong relationships.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-star"></i> Power: 4</span>
+                            <span><i class="fas fa-bolt"></i> Speed: 6</span>
+                            <span><i class="fas fa-shield-alt"></i> Defense: 5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card12">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♥</span>
+                            <span class="value">3</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Three of Hearts</h3>
+                        <p>The three of hearts represents joy, celebration, and emotional growth.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-star"></i> Power: 3</span>
+                            <span><i class="fas fa-bolt"></i> Speed: 7</span>
+                            <span><i class="fas fa-shield-alt"></i> Defense: 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card13">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-pattern"></div>
+                        <div class="card-symbol">
+                            <span class="symbol">♠</span>
+                            <span class="value">2</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Two of Spades</h3>
+                        <p>The two of spades represents choices, decisions, and new beginnings.</p>
+                        <div class="card-details">
+                            <span><i class="fas fa-star"></i> Power: 2</span>
+                            <span><i class="fas fa-bolt"></i> Speed: 5</span>
+                            <span><i class="fas fa-shield-alt"></i> Defense: 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="webdev13.js"></script>
+</body>
+</html> 
