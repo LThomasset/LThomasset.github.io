@@ -1,0 +1,42 @@
+[
+    {
+        "image": "img/zero.png",
+        "name": "0"
+    },
+    {
+        "image": "img/number-one.png",
+        "name": "1"
+    },
+    {
+        "image": "img/number-2.png",
+        "name": "2"
+    },
+    {
+        "image": "img/number-3.png",
+        "name": "3"
+    },
+    {
+        "image": "img/number-four.png",
+        "name": "4"
+    },
+    {
+        "image": "img/number-5.png",
+        "name": "5"
+    },
+    {
+        "image": "img/six.png",
+        "name": "6"
+    },
+    {
+        "image": "img/seven.png",
+        "name": "7"
+    },
+    {
+        "image": "img/number-8.png",
+        "name": "8"
+    },
+    {
+        "image": "img/number-9.png",
+        "name": "9"
+    }
+]
