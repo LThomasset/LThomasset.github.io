@@ -1,5 +1,62 @@
+class Node{
+    constructor(value){
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    constructor(){
+        this.head = null;
+    }
+    append(value){
+        let newNode = new Node(value)
+        if(!this.head){
+            this.head = newNode;
+            return;
+        }
+        let current = this.head;
+        while(current.next){
+            current = current.next;
+        }
+        current.next = newNode;
+    }
+    delete(value){
+        if (!this.head){
+            console.log("list is empty, can't delete value");
+            return;
+        }
+        if (this.head.value === value){
+            this.head = this.head.next;
+            return;
+        }
+        let prev = null;
+        let current = this.head;
+        while (current && current.value !== value){
+            prev = current;
+            current = current.next;
+        }
+        if(!current){
+            console.log("value not found in list");
+            return;
+        }
+        prev.next = current.next;
+    }
+    printList(){
+        let current = this.head;
+        let result = "";
+        while(current)
+        {
+            result += current.value + ' ';
+            current = current.next;
+        }
+        return result;
+    }
+}
+
 const gridContainer = document.querySelector(".grid-container");
 let cards = [];
+let list = new LinkedList();
 let firstCard, secondCard;
 let lockBoard = false;
 let score = 0;
@@ -65,7 +122,11 @@ function flipCard() {
 function checkForMatch() {
   let isMatch = firstCard.dataset.name === secondCard.dataset.name;
 
-  isMatch ? disableCards() : unflipCards();
+  if (isMatch){
+    unflipCards();
+    list.append(firstCard.dataset.name);
+  }
+  else unflipCards();
 }
 
 function disableCards() {
@@ -92,8 +153,22 @@ function resetBoard() {
 function restart() {
   resetBoard();
   shuffleCards();
+  let r = document.querySelector('.numbers-collected');
+  r.documentElement.style.setProperty('visibility', 'hidden');
   score = 0;
   document.querySelector(".score").textContent = score;
   gridContainer.innerHTML = "";
   generateCards();
+}
+
+function undo(){
+    list.delete(list.current.number);
+    displayList();
+}
+
+function displayList(){
+    let result = list.printList();
+    let r = document.querySelector('.numbers-collected');
+    r.documentElement.style.setProperty('visibility', 'visible');
+    document.getElementsByClassName(".numbers").textContent = result;
 }
