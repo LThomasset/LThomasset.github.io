@@ -222,9 +222,9 @@ function resetBoard() {
   lockBoard = false;
 }
 
-// function restart() {
-//   initialize();
-// }
+function restart() {
+  initialize();
+}
 
 function undo(){
     const lastValue = stack.pop();

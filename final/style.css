@@ -109,4 +109,10 @@ body {
         right: calc(100% - (820px + 15vw));
         position: absolute;
     }
+    .undo{
+        justify-content: right;
+        top: 60vh;
+        right: calc(100% - (820px + 15vw));
+        position: absolute;
+    }
   }
