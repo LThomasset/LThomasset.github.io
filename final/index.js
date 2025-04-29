@@ -1,75 +1,144 @@
-class Node{
-    constructor(value){
-        this.value = value;
-        this.next = null;
-    }
-}
+// class Node{
+//     constructor(value){
+//         this.value = value;
+//         this.next = null;
+//     }
+// }
 
-class LinkedList {
+// class LinkedList {
+//     constructor(){
+//         this.head = null;
+//         this.tail = null;
+//         this.size = 0;
+//     }
+//     append(value){
+//         let newNode = new Node(value)
+//         if(!this.head){
+//             this.head = newNode;
+//             this.tail = newNode;
+//         }else{
+//             this.tail.next = newNode;
+//             this.tail = newNode;
+//         }
+//         this.size++;
+//     }
+//     deleteLast(){
+//         if(!this.head){
+//             console.log("list empty, cannot delete last");
+//             return null; //fail
+//         }
+//         let delValue;
+//         if(this.head === this.tail){
+//             delValue = this.head.value;
+//             this.head = null;
+//             this.tail = null;
+//         }else{
+//             let current = this.head;
+//             while(current.next !== this.tail){
+//                 current = current.next;
+//             }
+//             delValue = this.tail.value;
+//             current.next = null;
+//             this.tail = current;
+//         }
+//         this.size--;
+//         return deletedValue;
+//     }
+//     printList(){
+//         let current = this.head;
+//         let result = "";
+//         while(current)
+//         {
+//             result += current.value + ' ';
+//             current = current.next;
+//         }
+//         return result;
+//     }
+//     clear(){
+//         this.head = null;
+//         this.tail = null;
+//         this.size = 0;
+//     }
+// }
+
+class Stack {
     constructor(){
-        this.head = null;
+        this.items = [];
     }
-    append(value){
-        let newNode = new Node(value)
-        if(!this.head){
-            this.head = newNode;
-            return;
-        }
-        let current = this.head;
-        while(current.next){
-            current = current.next;
-        }
-        current.next = newNode;
+    push(item){
+        this.items.push(item);
     }
-    delete(value){
-        if (!this.head){
-            console.log("list is empty, can't delete value");
-            return;
+    pop(){
+        if (this.isEmpty()){
+            console.log("stack is empty");
+            return undefined;
         }
-        if (this.head.value === value){
-            this.head = this.head.next;
-            return;
-        }
-        let prev = null;
-        let current = this.head;
-        while (current && current.value !== value){
-            prev = current;
-            current = current.next;
-        }
-        if(!current){
-            console.log("value not found in list");
-            return;
-        }
-        prev.next = current.next;
+        return this.items.pop();
     }
-    printList(){
-        let current = this.head;
-        let result = "";
-        while(current)
-        {
-            result += current.value + ' ';
-            current = current.next;
+    peek(){
+        if (this.isEmpty()){
+            console.log("stack is empty");
+            return undefined;
         }
-        return result;
+        return this.items[this.items.length - 1];
+    }
+    isEmpty(){
+        return this.items.length == 0;
+    }
+    size(){
+        return this.items.length;
+    }
+    print(){
+        return this.items;
+    }
+    clear(){
+        this.items = [];
     }
 }
 
 const gridContainer = document.querySelector(".grid-container");
+const numbersCollected = document.querySelector(".numbers-collected");
+const numbersElement = document.querySelector(".numbers");
+const restartButton = document.getElementById("restart-button");
+const undoButton = document.getElementById("undo-button");
+
 let cards = [];
-let list = new LinkedList();
-let firstCard, secondCard;
+let dataCache = null;
+let stack = new Stack();
+let firstCard = null;
+let secondCard = null;
 let lockBoard = false;
-let score = 0;
+let matches = 0;
 
-document.querySelector(".score").textContent = score;
+async function fetchData(){
+    if (dataCache){
+        return Promise.resolve(dataCache);
+    }
+    return fetch("cards.json")
+        .then((res) => res.json())
+        .then((data) => {
+            dataCache = data;
+            return data;
+        })
+}
 
-fetch("cards.json")
-  .then((res) => res.json())
-  .then((data) => {
+function setup(data){
     cards = [...data, ...data];
     shuffleCards();
     generateCards();
-  });
+}
+
+function initialize(){
+    stack.clear();
+    matches = 0;
+    numbersCollected.classList.remove('visible');
+    numbersElement.textContent = '';
+    resetBoard();
+
+    fetchData()
+        .then(setup)
+        .catch(error => console.error("error initializing game:", error));
+}
 
 function shuffleCards() {
   let currentIndex = cards.length,
@@ -85,24 +154,24 @@ function shuffleCards() {
 }
 
 function generateCards() {
-  for (let card of cards) {
+    gridContainer.innerHTML = '';
+    for (let card of cards) {
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");
     cardElement.setAttribute("data-name", card.name);
     cardElement.innerHTML = `
-      <div class="front">
+        <div class="front">
         <img class="front-image" src=${card.image} />
-      </div>
-      <div class="back"></div>
+        </div>
+        <div class="back"></div>
     `;
     gridContainer.appendChild(cardElement);
     cardElement.addEventListener("click", flipCard);
-  }
+    }
 }
 
 function flipCard() {
-  if (lockBoard) return;
-  if (this === firstCard) return;
+  if (lockBoard || this.classList.contains("flipped") || this === firstCard) return;
 
   this.classList.add("flipped");
 
@@ -112,29 +181,32 @@ function flipCard() {
   }
 
   secondCard = this;
-  score++;
-  document.querySelector(".score").textContent = score;
+
   lockBoard = true;
 
   checkForMatch();
 }
 
 function checkForMatch() {
-  let isMatch = firstCard.dataset.name === secondCard.dataset.name;
+    let isMatch = firstCard.dataset.name === secondCard.dataset.name;
 
-  if (isMatch){
-    unflipCards();
-    list.append(firstCard.dataset.name);
-  }
-  else unflipCards();
+    if (isMatch){
+        matches++;
+        stack.push(firstCard.dataset.name);
+        unflipCards();
+        displayList();
+    }
+    else {unflipCards()};
 }
 
-function disableCards() {
-  firstCard.removeEventListener("click", flipCard);
-  secondCard.removeEventListener("click", flipCard);
+// function disableCards() {
+//   firstCard.removeEventListener("click", flipCard);
+//   secondCard.removeEventListener("click", flipCard);
+//   firstCard.classList.add('matched');
+//   secondCard.classList.add('matched');
 
-  resetBoard();
-}
+//   resetBoard();
+// }
 
 function unflipCards() {
   setTimeout(() => {
@@ -150,25 +222,43 @@ function resetBoard() {
   lockBoard = false;
 }
 
-function restart() {
-  resetBoard();
-  shuffleCards();
-  let r = document.querySelector('.numbers-collected');
-  r.documentElement.style.setProperty('visibility', 'hidden');
-  score = 0;
-  document.querySelector(".score").textContent = score;
-  gridContainer.innerHTML = "";
-  generateCards();
-}
+// function restart() {
+//   initialize();
+// }
 
 function undo(){
-    list.delete(list.current.number);
-    displayList();
+    const lastValue = stack.pop();
+    if (lastValue !== undefined){
+        matches--;
+        const matched = gridContainer.querySelectorAll('.card.matched[data-name="${lastValue}"]');
+        if (matched.length >= 2){
+            const card1 = matched[matched.length - 1];
+            const card2 = matched[matched.length - 2];
+            card1.classList.remove('flipped','matched');
+            card2.classList.remove('flipped','matched');
+            card1.addEventListener('click',flipCard);
+            card2.addEventListener('click',flipCard);
+        }else{
+            console.warn("could not find cards to undo for value:", lastValue);
+        }
+        displayList();
+    }else{
+        console.log("nothing to undo");
+    }
 }
 
-function displayList(){
-    let result = list.printList();
-    let r = document.querySelector('.numbers-collected');
-    r.documentElement.style.setProperty('visibility', 'visible');
-    document.getElementsByClassName(".numbers").textContent = result;
+function displayList() {
+    let itemsArray = stack.print(); // Get the array from the stack
+    let result = itemsArray.join(' '); // Join array elements into a space-separated string
+    numbersElement.textContent = result;
+
+    if (stack.size() > 0) { // Check stack size
+        numbersCollected.classList.add('visible');
+    } else {
+        numbersCollected.classList.remove('visible');
+    }
 }
+
+restartButton.addEventListener("click", restart);
+undoButton.addEventListener("click", undo);
+window.onload = initialize;
