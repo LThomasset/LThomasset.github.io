@@ -7,14 +7,19 @@
     <title>Phone Number Input Memory Game</title>
 </head>
 <body>
+    <div class="bg"></div>
     <div class="numbers-collected">
         Phone Number: <span class="numbers"></span>
+    </div>
+    <div id="message" class="message">
+        Match the cards to add numbers to your phone number!
     </div>
     <div class="grid-container">
     </div>
     <div class="actions">
-        <button id="restart-button" class="restart" onclick = "initialize()">Restart</button>
-        <button id="undo-button" class="undo" onclick = "undo()">Undo</button>
+        <button id="restart-button" class="restart">Restart</button>
+        <button id="undo-button" class="undo">Undo</button>
+        <button id="submit-button" class="submit" onclick="submit()">Submit</button>
     </div>
     <script src="index.js"></script>
 </body>

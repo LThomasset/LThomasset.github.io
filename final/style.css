@@ -1,18 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Oregano:ital@0;1&family=Poltawski+Nowy:ital,wght@0,400..700;1,400..700&display=swap');
+
 *{     
-    --background: white;
-    background-color: var(--background);     
+    font-family: 'Handlee';
+    margin: 0;
+    --background: #b2cc8c;
+    --frontcard: #FEF9C7;
     background-size: 40px 40px;    
+}
+
+.message{
+  position: relative;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  margin: 20px;
+}
+
+.bg {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  height: 120vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 300% 300%;
+  background-image: linear-gradient(-45deg, var(--background) 0%, var(--background) 25%, var(--background) 51%, #fef67a 100%);
+  -webkit-animation: AnimateBG 20s ease infinite;
+          animation: AnimateBG 20s ease infinite;
+}
+
+@-webkit-keyframes AnimateBG {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
 
 body {
     min-height: 100vh;
     min-width: 100vh;
+    background-color: var(--background);     
 }
 
 .numbers-collected{
+    position: sticky;
+    top: 0;
+    z-index: 10;
     min-width: 100vh;
     font-weight: bold;
     font-size: 30px;
+    border: 5px solid #413519;
+    color: var(--frontcard);
+    background-color: #413519;
+    text-align: center;
 }
   
   h1 {
@@ -22,47 +80,65 @@ body {
   }
   
   p {
+      
       text-align: center;
       font-size: 30px;
       font-weight: bold;
   }
   
   .actions {
-      display: flex;
+      display: block;
       justify-content: center;
+      position: sticky;
+      top: 0;
   }
   
   .actions button {
       padding: 8px 16px;
       font-size: 30px;
       border-radius: 10px;
-      background-color: #27ae60;
-      color: white;
+      background-color: #413519;
+      color: var(--frontcard);
+      position: relative;
+      border: 3px solid #413519;
+      font-weight: bold;
+      margin: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
   .grid-container {
+    position: relative; 
     display: grid;
     justify-content: center;
     grid-gap: 16px;
     grid-template-columns: repeat(5, 100px);
     grid-template-rows: repeat(2, calc(100px / 2 * 3));
     padding: 30px;
-  }
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    z-index: 1;
+}
   
   .card {
     height: calc(100px / 2 * 3);
     width: 100px;
     border-radius: 10px;
-    border: 3px solid black;
-    background-color: var(--background);
+    border: 3px solid #413519;
+    background-color: var(--frontcard);
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.5s ease-in-out;
   }
   
   .front-image {
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 115px;
   }
   
   .card.flipped {
@@ -83,36 +159,88 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: inherit;
+    background-color: var(--frontcard);
   }
   
   .card .back {
+    background-image: url("img/back-card.png");
     background-position: center center;
     background-size: cover;
     backface-visibility: hidden;
-    filter: drop-shadow(5px 5px 5px black);
   }
   
   .card .front {
     transform: rotateY(180deg);
   }
 
-  @media screen and (min-width: 1000px) {
-    .grid-container{
-        position: absolute;
-        justify-content: left;
-        margin-left: 15vw;
-    }
-    .restart {
-        justify-content: right;
-        top: 50vh;
-        right: calc(100% - (820px + 15vw));
-        position: absolute;
-    }
-    .undo{
-        justify-content: right;
-        top: 60vh;
-        right: calc(100% - (820px + 15vw));
-        position: absolute;
-    }
+  .actions {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative;
+    height: 100px; /* Adjust height as needed */
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    height: 30px;
+    width: 100vw;
+    z-index: 10;
+    bottom: 20px;
+}
+
+  .actions button {
+    margin: 0 10px; /* Add spacing between buttons */
+    padding: 8px 16px;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: #413519;
+    color: var(--frontcard);
+    border: 3px solid #413519;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+  .actions button:hover {
+    background-color: #FEF9C7;
+    color: #413519;
+    transform: scale(1.05);
   }
+
+  .actions button:active {
+    transform: scale(0.95);
+  }
+
+  .actions button:disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+  }
+
+.restart, .undo, .submit{
+    margin: 0 10px; /* Add spacing between buttons */
+    padding: 8px 16px;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: #413519;
+    color: var(--frontcard);
+    border: 3px solid #413519;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card.flipped:hover{
+    cursor: default;
+}

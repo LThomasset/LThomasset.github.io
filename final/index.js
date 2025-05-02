@@ -1,66 +1,3 @@
-// class Node{
-//     constructor(value){
-//         this.value = value;
-//         this.next = null;
-//     }
-// }
-
-// class LinkedList {
-//     constructor(){
-//         this.head = null;
-//         this.tail = null;
-//         this.size = 0;
-//     }
-//     append(value){
-//         let newNode = new Node(value)
-//         if(!this.head){
-//             this.head = newNode;
-//             this.tail = newNode;
-//         }else{
-//             this.tail.next = newNode;
-//             this.tail = newNode;
-//         }
-//         this.size++;
-//     }
-//     deleteLast(){
-//         if(!this.head){
-//             console.log("list empty, cannot delete last");
-//             return null; //fail
-//         }
-//         let delValue;
-//         if(this.head === this.tail){
-//             delValue = this.head.value;
-//             this.head = null;
-//             this.tail = null;
-//         }else{
-//             let current = this.head;
-//             while(current.next !== this.tail){
-//                 current = current.next;
-//             }
-//             delValue = this.tail.value;
-//             current.next = null;
-//             this.tail = current;
-//         }
-//         this.size--;
-//         return deletedValue;
-//     }
-//     printList(){
-//         let current = this.head;
-//         let result = "";
-//         while(current)
-//         {
-//             result += current.value + ' ';
-//             current = current.next;
-//         }
-//         return result;
-//     }
-//     clear(){
-//         this.head = null;
-//         this.tail = null;
-//         this.size = 0;
-//     }
-// }
-
 class Stack {
     constructor(){
         this.items = [];
@@ -101,6 +38,9 @@ const numbersCollected = document.querySelector(".numbers-collected");
 const numbersElement = document.querySelector(".numbers");
 const restartButton = document.getElementById("restart-button");
 const undoButton = document.getElementById("undo-button");
+const submitButton = document.getElementById("submit-button");
+const message = document.getElementById("message");
+submitButton.disabled = true;
 
 let cards = [];
 let dataCache = null;
@@ -140,6 +80,8 @@ function initialize(){
         .catch(error => console.error("error initializing game:", error));
 }
 
+
+// make this work when cards are matched
 function shuffleCards() {
   let currentIndex = cards.length,
     randomIndex,
@@ -190,23 +132,34 @@ function flipCard() {
 function checkForMatch() {
     let isMatch = firstCard.dataset.name === secondCard.dataset.name;
 
-    if (isMatch){
+    if (isMatch && stack.size() < 12){
         matches++;
         stack.push(firstCard.dataset.name);
+        if (stack.size() === 3 || stack.size() === 7){
+            stack.push("-");
+        }
         unflipCards();
         displayList();
+        shuffleCards();
+        message.textContent = "Match the cards to add numbers to your phone number!";
     }
-    else {unflipCards()};
+    else if (stack.size() === 12){
+        submitButton.disabled = false;
+        alert("You have collected 10 numbers, please submit your number");
+        unflipCards();
+        message.textContent = "Match the cards to add numbers to your phone number!";
+    }
+    else if(stack.size() >= 12){
+        alert("too many numbers");
+        unflipCards();
+        shuffleCards();
+        displayList();
+        message.textContent = "Match the cards to add numbers to your phone number!";
+    }
+    else {unflipCards();
+        message.textContent = "Match the cards to add numbers to your phone number!";
+    }
 }
-
-// function disableCards() {
-//   firstCard.removeEventListener("click", flipCard);
-//   secondCard.removeEventListener("click", flipCard);
-//   firstCard.classList.add('matched');
-//   secondCard.classList.add('matched');
-
-//   resetBoard();
-// }
 
 function unflipCards() {
   setTimeout(() => {
@@ -226,37 +179,74 @@ function restart() {
   initialize();
 }
 
-function undo(){
-    const lastValue = stack.pop();
-    if (lastValue !== undefined){
-        matches--;
-        const matched = gridContainer.querySelectorAll('.card.matched[data-name="${lastValue}"]');
-        if (matched.length >= 2){
-            const card1 = matched[matched.length - 1];
-            const card2 = matched[matched.length - 2];
-            card1.classList.remove('flipped','matched');
-            card2.classList.remove('flipped','matched');
-            card1.addEventListener('click',flipCard);
-            card2.addEventListener('click',flipCard);
-        }else{
-            console.warn("could not find cards to undo for value:", lastValue);
+function undo() {
+    const lastValue = stack.pop(); 
+
+    if (lastValue !== undefined) {
+        if (lastValue === "-") {
+            const secondLastValue = stack.pop();
+            if (secondLastValue !== undefined) {
+                matches--;
+                undoMatchedCards(secondLastValue);
+            } else {
+                console.warn("Stack is inconsistent: '-' found but no preceding value.");
+            }
+        } else {
+            matches--;
+            undoMatchedCards(lastValue);
         }
-        displayList();
-    }else{
-        console.log("nothing to undo");
+        displayList(); 
+    } else {
+        console.log("Nothing to undo");
+    }
+}
+
+function undoMatchedCards(value) {
+    const matched = Array.from(gridContainer.querySelectorAll(`.card.matched[data-name="${value}"]`));
+    if (matched.length >= 2) {
+        const card1 = matched.pop(); 
+        const card2 = matched.pop(); 
+        card1.classList.remove("flipped", "matched");
+        card2.classList.remove("flipped", "matched");
+        card1.addEventListener("click", flipCard);
+        card2.addEventListener("click", flipCard);
+    } else if (matched.length === 1) {
+        console.warn(`Only one card found for value: ${value}. This might indicate an issue.`);
+    } else {
+        console.warn(`Could not find cards to undo for value: ${value}.`);
     }
 }
 
 function displayList() {
-    let itemsArray = stack.print(); // Get the array from the stack
-    let result = itemsArray.join(' '); // Join array elements into a space-separated string
+    let itemsArray = stack.print(); 
+    let result = itemsArray.join(' '); 
     numbersElement.textContent = result;
 
-    if (stack.size() > 0) { // Check stack size
+    if (stack.size() > 0) { 
         numbersCollected.classList.add('visible');
     } else {
         numbersCollected.classList.remove('visible');
     }
+
+    if (stack.size() === 12) {
+        submitButton.disabled = false;
+        message.textContent = "You have collected 10 numbers, please submit your number!";
+        message.classList.add("visible");
+    }
+    else {
+        submitButton.disabled = true;
+    }
+}
+
+function submit(){
+    const message = document.getElementById("message");
+    let itemsArray = stack.print(); 
+    let result = itemsArray.join(' '); 
+    message.textContent = "Your number is: " + result;
+    message.classList.add("visible");
+    const submitButton = document.getElementById("submit-button");
+    submitButton.disabled = true;
+    restart();
 }
 
 restartButton.addEventListener("click", restart);
