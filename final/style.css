@@ -300,10 +300,16 @@ body {
 
 @media (max-width: 500px) {
   .grid-container {
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(2, calc(100px / 2 * 3));
+    grid-template-columns: repeat(4, 75px);
+    grid-template-rows: repeat(2, calc(75px / 2 * 3));
     padding: 10px;
     grid-gap: 8px;
+  }
+
+  .card {
+    border-width: 2px; 
+    height: 15vh;
+    width: auto;
   }
 
   .message {
