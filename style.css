@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap');
 
 *{
-    --yellow: cornsilk;
-    --brown: #484030;
-    --green: darkolivegreen;
-    --light-brown: #7C6E57;
+    --white: #ffffff;
+    --dark: #1c314b;
+    --light: #f8fcce;
+    --yellow: #f7cb5c;
+    --green: #395e33;
     --font1: 'Merriweather Sans', sans-serif;
     --font2: 'Nunito Sans', sans-serif;
     --font3: 'Yrsa', serif;
@@ -13,52 +14,103 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: var(--yellow); 
+body {
+    font-family: var(--font2);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: var(--white);
 }
 
-h1 {
-    font-family: var(--font3);
-    font-weight: 700;
-    font-size: 3.5em;
-    color: #484030;
+header {
+    background: var(--dark);
+    color: var(--white);
+    padding: 1rem 0;
     text-align: center;
-    line-height: 1.2;
-    margin: 10px;
-    margin-top: 20px;
 }
 
-h2 {
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
     font-family: var(--font1);
-    font-weight: 600;
-    font-size: 1.5em;
-    color: var(--brown);
-    text-align: center;
-    margin: 10px;
 }
 
-h3 {
-    font-family: var(--font2);
-    font-weight: 400;
-    font-size: 1.5em;
-    color: var(--light-brown);
-    text-align: center;
-    margin-top: 10px;
+header p {
+    margin: 0.5rem 0 0;
+    font-size: 1.2rem;
+    font-family: var(--font3);
 }
 
-p {
-    font-family: var(--font2);
-    font-weight: 400;
-    font-size: 1.5em;
-    color: var(--brown);
+nav {
+    margin-top: 1rem;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.portfolio-item {
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+}
+
+.portfolio-item h3 {
+    margin: 0;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: var(--white);
+}
+
+footer {
     text-align: center;
-    margin-top: 20px;
+    padding: 1rem 0;
+    background: var(--dark);
+    color: var(--white);
+    margin-top: 2rem;
+}
+
+footer a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 a {
-    font-family: var(--font1);
-    font-weight: 600;
-    font-size: 1.2em;
-    color: var(--green);
+    color: var(--dark);
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
