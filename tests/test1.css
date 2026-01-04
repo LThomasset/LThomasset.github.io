@@ -15,11 +15,6 @@
     box-sizing: border-box;
 }
 
-/* About Section Styling */
-#about p {
-    margin-top: 1rem;
-}
-
 /* Body Styling */
 body {
     font-family: var(--font2);
@@ -206,18 +201,15 @@ section {
     transition: transform 0.5s ease;
 }
 
-/* Contact Section Styling */
 #contact {
     min-height: 200px; /* Ensures enough space for content */
 }
 
-/* Contact links styling */
 #contact a {
     color: var(--dark);
     text-decoration: none;
 }
 
-/* Contact links hover effect */
 #contact a:hover {
     color: var(--yellow);
 }
