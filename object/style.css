@@ -19,6 +19,9 @@ p {
     margin: 1rem;
     font-size: 1rem;
     text-align: center;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* About Section Styling */
@@ -265,4 +268,13 @@ video {
     display: block;
     margin: 1rem auto;
     
+}
+
+#Reflection {
+    margin: 2rem;
+    font-size: 1rem;
+    text-align: center;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
