@@ -49,7 +49,7 @@ header {
 /* header background color changed to light */
 header h1 {
     margin-top: 1rem;
-    font-size: 2.5rem;
+    font-size: 40px;
     font-family: var(--font1);
     color: var(--dark);
 }
@@ -57,12 +57,20 @@ header h1 {
 h2 {
     text-align: center;
     margin: 2rem 0 1rem;
-    font-size: 2rem;
+    font-size: 35px;
 }
 
 h3 {
     margin: 3rem 1rem 1rem;
-    font-size: 1.25rem;
+    font-size: 25px;
+    font-family: var(--font2);
+    color: var(--dark);
+    text-align: center;
+}
+
+h4 {
+    margin: 1rem 1rem 1rem;
+    font-size: 20px;
     font-family: var(--font2);
     color: var(--dark);
     text-align: center;
@@ -115,136 +123,6 @@ nav a:hover {
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* styled sticky language nav */
-#lang-nav {
-    margin-top: 0;
-    position: sticky;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    padding: .5rem;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    z-index: 1000;
-}
-
-/* styled language nav links as buttons */
-#lang-nav a {
-    margin: 0 0.5rem;
-    font-size: 0.9rem;
-    background-color: var(--white);
-    color: var(--dark);
-    padding: .3rem .6rem;
-    border-radius: 8px;
-}
-
-/* styled language nav link hover effect */
-#lang-nav a:hover {
-    background-color: var(--yellow);
-    color: var(--dark);
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* Section Styling */
-section {
-    padding: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Portfolio Grid Styling */
-.portfolio {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 0;
-}
-
-/* portfolio container */
-.portfolio-item {
-    position: relative;
-    background: var(--white);
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* item-project titles */
-.portfolio-item h3 {
-    /* positioning */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    /* center text */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 20px;
-    
-    /* visuals */
-    color: var(--white);
-    font-family: var(--font1);
-    background-color: rgba(28, 49, 75, 0.85); /* Uses your --dark color with transparency */
-    text-align: center;
-    font-size: 1.2rem;
-    
-    /* animation */
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none; /* Allows the click to pass through to the link below if needed */
-}
-
-/* show text when hover */
-.portfolio-item:hover h3 {
-    opacity: 1;
-}
-
-/* zoom effect on image */
-.portfolio-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-/* zoom image on hover */
-.portfolio-item:hover img {
-    transform: scale(1.1);
-}
-
-/* specific styling for project 2 image */
-.portfolio-item img, 
-.proj2img {
-    width: 100%;       /* Force it to fill the width */
-    height: 300px;     /* Set a fixed height so all grid items are uniform */
-    object-fit: cover; /* This crops the image to fill the area without stretching */
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-/* Contact Section Styling */
-#contact {
-    min-height: 200px; /* Ensures enough space for content */
-}
-
-/* Contact links styling */
-#contact a {
-    color: var(--dark);
-    text-decoration: none;
-}
-
-/* Contact links hover effect */
-#contact a:hover {
-    color: var(--yellow);
-}
-
 /* Footer Styling */
 footer {
     text-align: center;
@@ -259,7 +137,7 @@ img {
     height: auto;
     display: block;
     margin: 1rem auto;
-    
+    border-radius: 20px;
 }
 
 video {
@@ -267,7 +145,7 @@ video {
     height: auto;
     display: block;
     margin: 1rem auto;
-    
+    border-radius: 20px;
 }
 
 #Reflection {
@@ -277,4 +155,93 @@ video {
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media screen and (max-width: 600px) {
+    p, #Reflection {
+        max-width: 90%;
+        font-size: 0.9rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+        padding: .4rem .8rem;
+    }
+    
+}
+
+video {
+    max-width: 60%;
+}
+
+#materials {
+    text-align: center; /* Align text to the center */
+    margin: 0; /* Reset margin */
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two equal columns */
+    align-items: center; /* Vertically align items in the center */
+    gap: 2rem; /* Add some space between the columns */
+    padding: 0 2rem; /* Add some padding to the sides */
+}
+
+#materialsUsed {
+    text-align: center; /* Align text to the center */
+    margin: 0; /* Reset margin */
+}
+
+.materialsImage {
+    max-width: 600px; /* Image can take full width of its column */
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    margin: auto; /* Reset margin */
+}
+
+#materialsText {
+    text-align: right; /* Align text to the left */
+    font-size: 0.9rem;
+}
+
+#part1 {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two equal columns */
+    align-items: center; /* Vertically align items in the center */
+    gap: 2rem; /* Add some space between the columns */
+    padding: 0 2rem; /* Add some padding to the sides */
+}
+
+.pt1img {
+    max-width: 600px; /* Image can take full width of its column */
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    margin: auto; /* Reset margin */
+}
+
+.part2 {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two equal columns */
+    align-items: center; /* Vertically align items in the center */
+    gap: 2rem; /* Add some space between the columns */
+    padding: 0 2rem; /* Add some padding to the sides */
+}
+
+.pt2img {
+    max-width: 600px; /* Image can take full width of its column */
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    margin: auto; /* Reset margin */
 }
