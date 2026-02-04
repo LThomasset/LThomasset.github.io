@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lillie Thomasset – Object Documentation Blog</title>
+</head>
+<body>
+    <header>
+        <h1 id="Top"> Object Documentation Blog </h1>
+    </header>
+    <nav id="main-nav">
+        <!-- <a href="#top">Top</a> |
+        <a href="#1">Lab 1</a> -->
+    </nav>
+
+    <main class="container">
+        <h2 id="1"> Lab 2: “React-I/O-n” </h2>
+        <p> Note about AI: </p>
+        <p> I did use AI in part 4 of this assignment and I'm going to talk about exactly how and why I used it in this section. I was confused about how the randomSeed() function works and how to store the stop and start time of the player. I opened the Arduino Docs in order to find some definitions/parameters but I was still confused. So I provided Gemini with a snippet of my code and asked, "How do I use randomSeed() well, so I don't repeat numbers?" and "How do I store millis() in Arduino IDE?" In my code in part 4, lines 29–32 are where I used Gemini. In that section there is also a comment in all caps marking where I used it. </p>
+        
+        <div class="materials-box">
+            <h4> Materials Used </h4>
+            <ul>
+                <li> Arduino (Elegoo) Uno R3 Controller Board </li>
+                <li> USB Cable
+                <li> USB Adapter (if you have a USB-C-only laptop)
+                <li> Button
+                <li> 830 Tie-Points Breadboard
+                <li> Breadboard Jumper Wire
+                <li> Resistors
+                <li> LEDs
+                <li> Multimeter
+            </ul>
+        </div>
+
+        <h3> PART 1: Setting Up Arduino IDE </h3>
+        <section id="part1" class="media-section">
+            
+            <div class="description">
+                <h4>Arduino Blinking Light (Internal)</h4>
+                <p>I pre-downloaded Arduino IDE before recitation, opened up the "Blinker" example code, and pushed the code to the arduino for the light to blink.</p>
+            </div>
+            <video controls muted>
+                <source src="assets/part1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <h3> PART 2: Blinking an External LED </h3>
+        <section class="part2 media-section">
+
+            <div class="description">
+                <h4>No Blink Timing Change</h4>
+                <p>Here I wired up the LED with a 220 Ohm resistor. In order to change the LED blinking from the arduino's internal LED to this external LED, I created a variable for the external LED, assigned it a pin to receive power from, and replaced the the internal LED variable with the external LED variable in the rest of the code. </p>
+            </div>
+            <video controls muted>
+                <source src="assets/part2.1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <div class="description">
+                <h4>Blink Tming Change</h4>
+                <p>In this part I changed the delay() function in my code from both of them being delay(1000)—delayed by one second– to delay(3000) and delay(1000) so that the LED is on for three seconds and off for one second.</p>
+            </div>
+            <video controls muted>
+                <source src="assets/part2.2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+        <br>
+        
+        <section id="part3">
+            <h3> PART 3: Button Press and Serial Monitor </h3>
+            <div class="media-row">
+                <div class="description">
+                    <h4>Wiring</h4>
+                    <p>This is what my circuit looked like after wiring it up according to the provided schematic/visual. I used orange wires whenever the wire is connected to a power source/a powered part of the breadboard. I used black wires when the wire is connected to ground.</p>
+                </div>
+                <img src="assets/part3.1.jpg" alt="Button Circuit Schematic">
+            </div>
+            <div class="media-row">
+                <div class="description">
+                    <h4>"Hello World"</h4>
+                    <p>I checked that the serial monitor was working with this message. I had a little bit of confusion with this at first because I thought that the lab assignment document said "Serial.printIn()" instead of "Serial.println()"!</p>
+                </div>
+                <img src="assets/part3.2.png" alt="Button Circuit Schematic">
+            </div>
+            <div class="media-row">
+                <div class="description">
+                    <h4>Button Press</h4>
+                    <p>I used this code to see if the button was registering if it was being pressed or not. This if statement worked out really well for this part of the assignment because I could make sure the serial monitor wasn't repeating the same message over and over. However, I end up discarding this method for part 4 because it didn't translate like I thought it would. (Or at least, it was more confusing than a while() loop while I was doing part 4.)</p>
+                </div>
+                <img src="assets/part3.3.png" alt="Button Circuit Schematic">
+            </div>
+            <div class="media-row">
+                <div class="description">
+                    <p>Here is a video of me showing that pressing the button works and registers in the serial monitor correctly. </p>
+                    <p> I personally didn't have much of an issue with oscilation when it came to how my button was registering with my code. I wonder if my boolean helped that not happen for me or if having a delay after outputting the button's actions onto the serial monitor would help.</p>
+                </div>
+                <video controls muted>
+                    <source src="../lab2/assets/part3.4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section id="extra">
+        <h3> Part 4: LED Reaction Game </h3>
+           <div class="media-row">
+                <div class="description">
+                    <p>I struggled with the structure of this code quite a bit because I couldn't wrap my head around how to use the for loop (that I used in the other parts of this assignment) for the purpose of the speed game. Because there has to be a lot of repeating elements I ended up scrapping the whole for loop and trying a while loop instead. <strong>[Step 1]</strong> I included the "Ready?" message in the code setup() function because I only wanted that to be said right after the welcome message. <strong>[Step 2]</strong> I included the countdown at the top of the loop so that it would happen not only after the first round of the game, but also during the first round of the game in order to make it fair for all players. <strong> [Step 3] </strong> I realized that this code was a lot easier with a while loop than an if statement because I can have the while loop continue until the player hits the button. <strong> [Step 4]</strong> When the button is pressed, the LED light turns off and the reaction time is calculated. <strong> [Step 5] </strong> The reaction time is printed before letting the player know the next game is about to start. Then the loop starts back again at step 2. </p>
+                </div>
+                <video controls muted>
+                    <source src="assets/part4.1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+           </div>
+           <script src="https://gist.github.com/LThomasset/3c81dd57f4fc62d09ef190ae6e0a6494.js"></script>
+        </section>
+
+        <h3> Reflection </h3>
+        <p id="Reflection"> This was a really interesting lab assingment that helped me relearn some of the C++ that I have forgotten over the past year, and also really helped me get more familiar with how arduinos work. I think it is really important to cite your sources when it comes to using AI because AI SHOULD be used as a tool rather than a crutch, especially in a learning environment. So, I hope my citing of AI usage in this lab is adequate and that my usage itself is appropriate! </p> 
+    </main>
+    <footer>
+        <nav id="footer-nav">
+            <a href="#top">Top</a>
+        </nav>
+        <p> &copy; 2024 Lillie Thomasset </p>
+    </footer>
+</body>
+</html>
