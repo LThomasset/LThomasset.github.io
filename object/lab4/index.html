@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lillie Thomasset – Object Documentation Blog</title>
+</head>
+<body>
+    <header>
+        <h1 id="Top"> Object Documentation Blog </h1>
+    </header>
+    <nav id="main-nav">
+        <!-- <a href="#top">Top</a> |
+        <a href="#1">Lab 1</a> -->
+    </nav>
+
+    <main class="container">
+        <h2 id="1"> Lab 4: “Whack-A-MoLED” </h2>
+        <p> Making a Whack-A-Mole Game with an arduino! </p>
+        
+        <div class="materials-box">
+            <h4> Materials Used </h4>
+            <ul>
+                <li> Arduino (Elegoo) Uno R3 Controller Board </li>
+                <li> USB Cable
+                <li> USB Adapter 
+                <li> Potentiometer 10k
+                <li> Joystick Module
+                <li> 830 Tie-Points Breadboard
+                <li> Breadboard Jumper Wire
+                <li> Resistors
+                <li> LEDs
+                <li> Multimeter
+            </ul>
+        </div>
+
+        <h3> PART 1: Using A Potentiometer </h3>
+        <section id="part1" class="media-section">
+            <div class="description">
+                <h4>Potentiometer Circuit Wiring</h4>
+                <p>I made sure to connect the static pins to 5V and ground, while connecting the variable pin to an analog pin.</p>
+            </div>
+            <img src="assets/part1.1.jpg" alt="Potentiometer Circuit Schematic">
+        
+            <div class="description">
+                <h4>Circuit Schematic</h4>
+                <p>I drew the schematic so that it's easier to see what's going on.</p>
+            </div>
+            <img src="assets/part1.2.jpg" alt="Potentiometer Circuit Schematic">
+
+            <div class="description">
+                <h4>Serial Output Potentiometer Value</h4>
+                <p>The numbers on the serial monitor react to me adjusting the potentiometer because my code is printing what is being read off of the analog pin.</p>
+            </div>
+            <video controls muted>
+                <source src="assets/part1.3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+        <script src="https://gist.github.com/LThomasset/5a8b482c594087829e49009c6ff3a6f8.js"></script>
+
+        <h3> PART 2: Light 'Em Up With A Potentiometer </h3>
+        <section class="part2 media-section">
+
+            <div class="description">
+                <h4>Wiring of the Circuit</h4>
+                <p>I wired up this circuit so that the code can read the change in potentiometer from the analog pin, and then output to the correct LEDs accordingly using digital pins.</p>
+            </div>
+           <img src="assets/part2.1.jpg" alt="Potentiometer Circuit Schematic">
+            
+            <div class="description">
+                <h4>"In our case, our  x is the analog input reading which ranges from [0, 1023], but what 
+                    should be the range of  y? 
+                    And how can we use the mapped value of y to turn on a different number of LEDs?"</h4>
+                <p>I made the range of y be between 0 and 5 so that the x analog input could map to 0 (no LEDs), 1 (one LED), 2 (two LEDs), 3 (three LEDs), 4 (four LEDs), and 5 (five LEDs). I then wrote in the code that if y is greater than 0, as long as i (initially i = 0) is less than y then that number of LED (in the array) should turn on.</p>
+            </div>
+            <video controls muted>
+                <source src="assets/part2.2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+        <script src="https://gist.github.com/LThomasset/b36debd06c7c8de816d39c5b6672fefd.js"></script>
+        <br>
+        
+        <section id="part3">
+            <h3> PART 3: Joystick For Arduino </h3>
+            <div class="media-row">
+                <div class="description">
+                    <h4>Wiring the Joystick</h4>
+                    <p>This is what the circuit looks like when I took away the potentiometer circuit and added a joystick.</p>
+                </div>
+                <img src="assets/part3.1.jpg" alt="Button Circuit Schematic">
+            </div>
+            <div class="media-row">
+                <div class="description">
+                    <h4>X,Y Serial Print</h4>
+                    <p>This is what the x and y values looked like when I printed what my code was reading fromt he joystick x and y analog pins.</p>
+                </div>
+                <video controls muted>
+                    <source src="assets/part3.2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="media-row">
+                <div class="description">
+                    <h4>"What are the average values of both x and y directions when the joystick is 
+                        centered (home position)? 
+                        What are the values when the joystick is moved all the way to the left? The 
+                        right? Up? Down? 
+                        What about the four diagonally extreme positions?"</h4>
+                    <p>The x and y values of the joystick when it is at the center are about 510. Bringing the joystick to the left, the x value is 0 and the y value is 510. Bringing the joystick to the right, the x value is 1023 and they y value is 510. Bringing the joystick up, the x value is 510 and the y value is 0. Bringing the Joystick down, the x value is 510 and the y value is 1023. For the x and y values of the diagonal positions, refer to the diagram under "3)" in the image to the right.</p>
+                </div>
+                <img src="assets/part3.3.jpg" alt="Button Circuit Schematic">
+            </div>
+        </section>
+        <script src="https://gist.github.com/LThomasset/ad68a4490b1c51be005df5f173301001.js"></script>
+        <br>
+
+        <section id="extra">
+        <h3> Part 4: Light 'Em Up With A Joystick </h3>
+           <div class="media-row">
+                <div class="description">
+                    <h4>Re-Wiring LEDs</h4>
+                    <p>Here I re-wired the LEDs to better resemble the directions a joystick can go in.</p>
+                </div>
+                <img src="assets/part4.1.jpg" alt="Button Circuit Schematic">
+           </div>
+            <div class="media-row">
+                <div class="description">
+                    <h4> Lighting Up LEDs With Joystick </h4>
+                    <p> I wrote some code to read what position the joystick is in, and then light up the corresponding LEDs.</p>
+                </div>
+                <video controls muted>
+                    <source src="assets/part4.2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+        <script src="https://gist.github.com/LThomasset/3457ba0ab9ad40e61d3fd01cb3bb2abb.js"></script>
+
+        <section id="extra">
+            <h3> Part 5: Light Basic LED Whack-A-Mole </h3>
+                <div class="media-row">
+                    <div class="description">
+                        <h4> Playing Whack-A-Mole </h4>
+                        <p>I set up this code so that I would establish that all of the LEDs are off from the beginning. I called randomSeed(), which I used in Lab 2, in order to make randomly selecting an LED truly random. Then I read the x and y inputs, made sure the LEDs were off before starting again, and then sent out a player message as well as an LED count down. I ended up not using map() becuase I was having some issues with it and decided to stick with the original values I was reading from the joystick. In order to have 20 rounds, I had a for loop go for 20 times. Then, while the mole wasn't caught, I checked if the joystick value and the LED randomly chosen aligned. If they did, caught equals true and the player is out of the while loop. The LED turns off, and they start the for loop over again. Once the for loop has repeated 20 times, I used code that I used in lab 2 in order to read the time it took, I printed the player's time, and then the game restarts with the welcome message!</p>
+                    </div>
+                    <video controls muted>
+                        <source src="assets/part5.1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
+            <script src="https://gist.github.com/LThomasset/19c4e619f180f77e8b7c2d0edc630e46.js"></script>
+
+        <h3> Reflection </h3>
+        <p id="Reflection"> I struggled a bit because some of the ways I used if statements and for loops in one part of this lab didn't work in other sections. However, I really enjoyed the challenge of this lab as I felt it was approachable and challenging enough to be really interesting! </p> 
+    </main>
+    <footer>
+        <nav id="footer-nav">
+            <a href="#top">Top</a>
+        </nav>
+        <p> &copy; 2026 Lillie Thomasset </p>
+    </footer>
+</body>
+</html>
