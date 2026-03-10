@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lillie Thomasset – Object Documentation Blog</title>
+</head>
+<body>
+    <header>
+        <h1 id="Top"> Object Documentation Blog </h1>
+    </header>
+    <nav id="main-nav">
+        <!-- <a href="#top">Top</a> |
+        <a href="#1">Lab 1</a> -->
+    </nav>
+
+    <main class="container">
+        <h2 id="1"> Lab 6: “Fine Motor Control” </h2>
+        <p></p>
+        
+        <div class="materials-box">
+            <h4> Materials Used </h4>
+            <ul>
+                <li> Arduino (Elegoo) Uno R3 Controller Board </li>
+                <li> USB Cable
+                <li> USB Adapter
+                <li> Power Supply Module
+                <li> Breadboard Jumper Wire
+                <li> Resistors
+                <li> Servo Motor SG90
+                <li> Multimeter
+                <li> DC Motor and Fan Blade
+                <li> L293D IC
+                <li> Button
+                <li> Potentiometer
+                <li> 9V Battery with Snap-on Connector
+            </ul>
+        </div>
+
+        <h3> PART 0: Setting Up Power </h3>
+        <section id="part1" class="media-section">
+            <div class="description">
+                <h4>Connecting the power supply module so one of the power rails on the breadboard is 5V and the other is 3.3V!</h4>
+                <p> The bottom power rail is 5V and the top power rail is 3.3V. </p>
+            </div>
+            <img src="assets/part0.jpg" alt="LED Circuit">
+        </section>
+
+        <h3> PART 1: Wiring the Servo </h3>
+        <section class="part2 media-section">
+
+            <div class="description">
+                <h4>Which pins allow PWM?</h4>
+                <p>The pins with a "~" before the number are PWM pins. For example, pins 5 and 6 are PWM pins. Here is how I connected the servo to the circuit using a PWM pin.</p>
+            </div>
+           <img src="assets/part1.1.jpg" alt="part 1 circuit setup">
+
+           <div class="description">
+            <h4>Installed Servo.h Library</h4>
+            </div>
+            <img src="assets/part1.2.png" alt="part 1 circuit setup">
+
+            <div class="description">
+                <h4>Turning Servo</h4>
+                <p>I uploaded the provided code from the lab description to my Arduino and made the Servo turn!</p>
+            </div>
+            <video controls muted loop>
+                <source src="assets/part1.3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+        
+        <br>
+        
+        <section id="part3">
+            <h3> PART 2: Controlling The Servo </h3>
+            <div class="media-row">
+                <div class="description">
+                    <h4>Connecting the Potentiometer</h4>
+                    <p>Here is how I connected the potentiometer to the circuit.</p>
+                </div>
+                <img src="assets/part2.1.jpg" alt="Button Circuit Schematic">
+            </div>
+            <div class="media-row">
+                <div class="description">
+                    <h4>"Which Arduino function can we use to convert the analog potentiometer reading into an angle value that can be sent to the servo for this behavior?"</h4>
+                    <p>I used the map() function in order to change the potentiometer reading (between 0 and 1023) to the range of degrees the servo can turn (between 0 and 180).</p>
+                </div>
+                <video controls muted loop>
+                    <source src="assets/part2.2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <script src="https://gist.github.com/LThomasset/436535a9b6c42ff6b9fd6a29c68fff19.js"></script>
+            
+            <div class="media-row">
+                <div class="description">
+                    <h4>Potentiometer Influencing Servo Speed</h4>
+                </div>
+                <video controls muted loop>
+                    <source src="assets/part2.3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <script src="https://gist.github.com/LThomasset/cb56d4756660e0aafa8287a90d87edde.js"></script>
+        </section>
+        <br>
+
+        <section id="extra">
+        <h3> Part 3: DC Motor and Motor Driver </h3>
+           <div class="media-row">
+                <div class="description">
+                    <h4>DC Motor Running</h4>
+                    <p>I connected the DC Motor to my circuit and here's how!</p>
+                </div>
+                <video controls muted loop>
+                    <source src="assets/part3.1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+           </div>
+           <img src="assets/part3.1.jpg" alt="DC Motor Circuit Schematic">
+
+           <div class="media-row">
+            <div class="description">
+                <h4> Complete Motor Circuit </h4>
+                <p>Here is my circuit with the L293D IC! I used this motor driver in order to control the DC motor.</p>
+            </div>
+                <img src="assets/part3.2.jpg" alt="DC Motor Circuit">
+            </div>
+
+            <div class="media-row">
+                <div class="description">
+                    <h4> Specific Motor Movement </h4>
+                    <p>The motor turns forward at full speed for two seconds, stops for one second, turns backward at full speed for two seconds, stops for one second, then goes back to the beginning.</p>
+                </div>
+                <video controls muted loop>
+                    <source src="assets/part3.3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <script src="https://gist.github.com/LThomasset/5e4340a6fe1426be8a527835a5e8c870.js"></script>
+
+            <div class="media-row">
+                <div class="description">
+                    <h4> rampUp() & rampDown() </h4>
+                    <p>I wrote this code so that the motor starts from 0 speed and increases speed ("ramping up") to full speed, then slowly decreases speed ("ramping down") until the speed is at 0. Then repeats!</p>
+                </div>
+                <video controls muted loop>
+                    <source src="assets/part3.4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <script src="https://gist.github.com/LThomasset/bbcd68c6677ccdfa1f46f957397816ae.js"></script>
+        </section>
+
+        <section id="extra">
+            <h3> Part 4: Table-Top Fan </h3>
+               <div class="media-row">
+                    <div class="description">
+                        <h4>Connecting the DC Motor to the Servo</h4>
+                        <p>Here is how I attatched the DC motor to the Servo, and what my circuit looks like!</p>
+                    </div>
+                    <img src="assets/part4.1.jpg" alt="DC Motor and Servo Connection">
+               </div>
+               <img src="assets/part4.1.2.jpg" alt="DC Motor and Servo Connection">
+               
+    
+               <div class="media-row">
+                <div class="description">
+                    <h4>"What will be the PWM value appropriate for 70% speed?"</h4>
+                    <p>179 is about 70% of 255, so I used that value to set the fan speed to 70%.</p>
+                </div>
+                    <video controls muted loop>
+                        <source src="assets/part4.2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <script src="https://gist.github.com/LThomasset/0e7f32345a953804760c48275d7bb991.js"></script>
+            </section>
+
+        <!-- <h3> Fun Fact! </h3>
+        <p id="Reflection"> I made the the buzzer match the tempo of Midwest Indigo as well by listening to the song and matching up the timing of the notes!</p>  -->
+    </main>
+    <footer>
+        <nav id="footer-nav">
+            <a href="#top">Top</a>
+        </nav>
+        <p> &copy; 2026 Lillie Thomasset </p>
+    </footer>
+</body>
+</html>

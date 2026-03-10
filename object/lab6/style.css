@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000&family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap');
+
+/* CSS Variables and Global Styles */
+* {
+    --white: #ffffff;
+    --dark: #1c314b;
+    --yellow: #f7cb5c;
+    --font1: 'Merriweather Sans', sans-serif;
+    --font2: 'Nunito Sans', sans-serif;
+    --font3: 'Yrsa', serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container for documentation layout */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+body {
+    font-family: var(--font2);
+    margin: 0;
+    padding: 0; /* Remove body padding, let container handle it */
+    line-height: 1.8; /* Increased line height for readability */
+    color: var(--dark);
+    background-color: #f9f9fb; /* Slightly off-white background for eyes */
+}
+
+/* Header Styling */
+header {
+    color: var(--dark);
+    padding: 2rem 0 1rem;
+    text-align: center; /* Centered main title */
+    background-color: var(--white);
+    border-bottom: 4px solid var(--yellow); /* Accent line */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 40px;
+    font-family: var(--font1);
+    color: var(--dark);
+}
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    justify-content: center;
+    background: var(--dark);
+    padding: 1rem;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 1rem; /* Adjust margin */
+    font-size: 1rem;
+    background-color: transparent; /* Clean look */
+    padding: .5rem 1rem;
+    border: 1px solid var(--white); /* Added border */
+    border-radius: 10px;
+}
+
+nav a:hover {
+    background-color: var(--yellow);
+    color: var(--dark);
+    border-color: var(--yellow);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Section Styling */
+h2 {
+    text-align: left;
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 35px;
+    border-bottom: 2px solid #e0e0e0; /* Section divider */
+}
+
+h3 {
+    margin: 3rem 0 1rem;
+    font-size: 25px;
+    font-family: var(--font1); /* Switch font for hierarchy */
+    font-weight: 700;
+    color: var(--dark);
+    text-align: left;
+}
+
+h4 {
+    margin: 2rem 0 1rem;
+    font-size: 20px;
+    font-family: var(--font2);
+    color: var(--dark);
+    text-align: left;
+    font-weight: 700;
+}
+
+p {
+    margin: 1rem 0;
+    font-size: 1.05rem; /* Slightly larger text */
+    text-align: left;
+    max-width: 100%; /* Let container control width */
+}
+
+/* Materials Box Styling */
+.materials-box {
+    background-color: var(--white);
+    border-left: 5px solid var(--yellow);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.materials-box h4 {
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: square; /* Technical look */
+    margin: 0 0 0 1.5rem;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Image Styling */
+img {
+    max-width: 100%; /* Fit container */
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Lift off page */
+    border: 1px solid #eee;
+}
+
+/* Video Styling */
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Media Section Grid Layout */
+.media-section, .media-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Equal columns for text and media */
+    gap: 2rem;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+/* Ensure images/videos inside grid fit well */
+.media-section video, 
+.media-section img,
+.media-row video,
+.media-row img {
+    width: 100%;
+    margin: 0; /* Remove default margin to let grid handle spacing */
+}
+
+/* Reflection Section */
+#Reflection {
+    margin: 1rem 0 3rem;
+    font-size: 1.05rem;
+    font-style: italic;
+    background-color: #e8f0fe; /* Light blue highlight */
+    padding: 1.5rem;
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: var(--dark);
+    color: var(--white);
+    margin: 0; /* Removing negative margins */
+}
+
+footer nav a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+footer nav a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    text-align: center;
+    max-width: 100%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    p, #Reflection {
+        max-width: 100%;
+        font-size: 0.9rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        margin: 0 0.5rem 0 0;
+        font-size: 0.9rem;
+        padding: .4rem .8rem;
+    }
+
+    footer {
+        padding: 1rem 1rem;
+    }
+
+    .media-section, .media-row {
+        grid-template-columns: 1fr; /* Stack vertically on mobile */
+    }
+}
