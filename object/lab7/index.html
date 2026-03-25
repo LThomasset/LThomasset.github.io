@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lillie Thomasset – Object Documentation Blog</title>
+</head>
+<body>
+    <header>
+        <h1 id="Top"> Object Documentation Blog </h1>
+    </header>
+    <nav id="main-nav">
+        <!-- <a href="#top">Top</a> |
+        <a href="#1">Lab 1</a> -->
+    </nav>
+
+    <main class="container">
+        <h2 id="1"> Lab 7: “Trust the Process-ing” </h2>
+        <p></p>
+        
+        <div class="materials-box">
+            <h4> Materials Used </h4>
+            <ul>
+                <li> Arduino (Elegoo) Uno R3 Controller Board </li>
+                <li> USB Cable
+                <li> USB Adapter
+                <li> Breadboard Jumper Wire
+                <li> Joystick
+                <li> Multimeter
+            </ul>
+        </div>
+
+        <h3> PART 0: Setting Up Processing </h3>
+        <section id="part1" class="media-section">
+            <div class="description">
+                <h4>Downloaded Processing</h4>
+            </div>
+            <img src="assets/part0.png" alt="Processing Screenshot">
+        </section>
+
+        <br>
+
+        <h3> PART 1: Creating With Processing </h3>
+        <section class="part2 media-section">
+
+            <div class="description">
+                <h4>Upload a video or a screen capture of the part1 processing sketch running on the computer.</h4>
+                <p></p>
+            </div>
+           <video controls muted loop>
+                <source src="assets/part1.1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+           <div class="description">
+            <h4>Change Ellipse Color & Size</h4>
+            </div>
+            <video controls muted loop>
+                <source src="assets/part1.2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="description">
+                <h4>Changed Code</h4>
+                </div>
+                <script src="https://gist.github.com/LThomasset/442d61180ae401d2662ce36ad6564c29.js"></script>
+        </section>
+        
+        <br>
+        
+        <section id="part3">
+            <h3> PART 2: Processing With Arduino </h3>
+            <div class="media-row">
+                <div class="description">
+                    <h4>Connect the joystick to the Arduino and upload a picture.</h4>
+                    <p></p>
+                </div>
+                <img src="assets/part2.1.jpg" alt="Joystick Circuit">
+            </div>
+            <div class="media-row">
+                <div class="description">
+                    <h4>Fritzing Circuit Illustration</h4>
+                    <p></p>
+                </div>
+                <img src="assets/part2.2.png" alt="Joystick Circuit Illustration">
+            </div>
+
+            <div class="media-row">
+                <div class="description">
+                    <h4>Video of serial output of joystick values.</h4>
+                </div>
+                <video controls muted loop>
+                    <source src="assets/part2.3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <script src="https://gist.github.com/LThomasset/cc187b442fd364ace66aed6e94a9d20f.js"></script>
+
+            <div class="media-row">
+                <div class="description">
+                    <h4>Video of processing sketch with joystick input.</h4>
+                </div>
+                <video controls muted loop>
+                    <source src="assets/part2.4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <script src="https://gist.github.com/LThomasset/3904de8ad03f32b7dbb2e44ad03d4f6c.js"></script>
+        </section>
+
+        <br>
+
+        <section id="extra">
+        <h3> Part 3: Creating Your Own Visualization </h3>
+           <div class="media-row">
+                <div class="description">
+                    <h4>Interactive Visualization</h4>
+                    <p>I was thinking about what different ways I could implement a button, a potentiometer and the joystick. I knew I wanted the button to turn the ellipse black, and that I wanted the joystick to move the ellipse around, but I wanted the potentiometer to be the opacity. I couldn't figure out how to get opacity to work so all of the variables labled as "opacity" in the code are affecting the size of the ellipse. All I did for the Arduino code is copy what I did with the joystick values. Then, I assigned the potentiometer to adjust the size while the button changes the color (just assigned the button the same value that the joystick button held before).</p>
+                </div>
+                <video controls muted loop>
+                    <source src="assets/part3.1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+           </div>
+
+           <div class="media-row">
+                <div class="description">
+                    <h4>Arduino Code</h4>
+                </div>
+           </div>
+           <script src="https://gist.github.com/LThomasset/d1b870908db5a3ac7a3c011ee9396b58.js"></script>
+
+           <div class="media-row">
+            <div class="description">
+                <h4>Processing Code</h4>
+            </div>
+       </div>
+       <script src="https://gist.github.com/LThomasset/e93bb6d92b358439a13f5a9a8970a40e.js"></script>
+        </section>
+
+        <!-- <h3> Fun Fact! </h3>
+        <p id="Reflection"> I made the the buzzer match the tempo of Midwest Indigo as well by listening to the song and matching up the timing of the notes!</p>  -->
+    </main>
+    <footer>
+        <nav id="footer-nav">
+            <a href="#top">Top</a>
+        </nav>
+        <p> &copy; 2026 Lillie Thomasset </p>
+    </footer>
+</body>
+</html>
